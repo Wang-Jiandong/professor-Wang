@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>王某某教授 | 个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{font-family: "Segoe UI", Arial, sans-serif; margin:0; background:#f6f7fb; color:#222;}
+    header{background:#1f3c88; color:#fff; padding:28px 16px;}
+    header .wrap{max-width:1000px; margin:0 auto; display:flex; gap:16px; align-items:center;}
+    header img{width:90px; height:90px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.5);}
+    main{max-width:1000px; margin:24px auto; padding:0 16px;}
+    .card{background:#fff; border-radius:12px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,.08); margin-bottom:16px;}
+    h1{margin:0;}
+    h2{margin:0 0 10px 0; color:#1f3c88;}
+    .back{display:inline-block; margin-top:10px; color:#fff; text-decoration:underline;}
+    .grid{display:grid; grid-template-columns:1fr; gap:12px;}
+    @media (min-width: 900px){ .grid{grid-template-columns:1fr 1fr;} }
+    .media img{width:100%; border-radius:10px;}
+    .video{position:relative; padding-top:56.25%; border-radius:10px; overflow:hidden; background:#000;}
+    .video iframe, .video video{position:absolute; inset:0; width:100%; height:100%;}
+    footer{text-align:center; color:#666; padding:20px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="../assets/屏幕截图 2026-01-25 220552.jpg" alt="王教授">
+    <div>
+      <h1>王某某 教授（PI）</h1>
+      <div>XXX大学 · 电气与自动化工程学院</div>
+      <a class="back" href="../index.html#people">← 返回团队成员</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>个人简介</h2>
+    <p>
+      这里写王教授的简要介绍：研究兴趣、代表性成果、承担项目、指导学生方向等。
+      建议 5–8 行即可，让外部访问者快速了解。
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>研究方向</h2>
+    <ul>
+      <li>建筑供热/制冷系统预测控制</li>
+      <li>压缩机建模与参数辨识</li>
+      <li>忆阻器 / EC-RAM 神经形态计算</li>
+      <li>强化学习与物理智能系统</li>
+    </ul>
+  </section>
+
+  <section class="card media">
+    <h2>图片展示</h2>
+    <div class="grid">
+      <img src="../assets/屏幕截图 2026-01-25 220552.jpg" alt="照片1">
+      <img src="../assets/E2E3342A79566BE96BB4DBD3E58_43B18973_D837.png" alt="照片2">
+    </div>
+    <p style="color:#666; margin-top:10px;">把这里替换成实验室照片、论文图、装置图都可以。</p>
+  </section>
+
+  <section class="card">
+    <h2>视频</h2>
+
+    <!-- 方案A：嵌入B站/YouTube（推荐） -->
+    <p style="color:#666;">方案A：嵌入视频（把下面 src 换成你的视频嵌入链接）</p>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+
+    <hr style="margin:18px 0; border:none; border-top:1px solid #eee;">
+
+    <!-- 方案B：放本地 mp4（可选，文件会占仓库体积） -->
+    <p style="color:#666;">方案B：本地 mp4（把 mp4 上传到 assets 后改路径）</p>
+    <div class="video">
+      <video controls src="../assets/demo.mp4"></video>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>联系方式</h2>
+    <p>Email：wanglab@xxx.edu.cn</p>
+    <p>办公地点：XXX楼 XXX室</p>
+  </section>
+</main>
+
+<footer>© 2026 Professor Wang Lab</footer>
+</body>
+</html>
