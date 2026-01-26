@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>扬子江老师 | 个人主页</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root{
       --blue:#1f3c88;
@@ -14,54 +14,102 @@
       --muted:#666;
     }
     *{box-sizing:border-box;}
-    body{font-family:"Segoe UI", Arial, sans-serif; margin:0; background:var(--bg); color:var(--text);}
+    body{font-family:"Segoe UI", Arial, sans-serif;margin:0;background:var(--bg);color:var(--text);}
+    a{color:var(--blue);}
 
-    header{background:var(--blue); color:#fff; padding:28px 16px;}
-    header .wrap{max-width:1000px; margin:0 auto; display:flex; gap:16px; align-items:center;}
+    header{
+      background:#1f3c88;
+      color:#fff;
+      padding:28px 16px;
+    }
+    header .wrap{
+      max-width:1000px;
+      margin:0 auto;
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
     header img{
-      width:90px; height:90px; border-radius:50%;
-      object-fit:cover; border:2px solid rgba(255,255,255,.5);
+      width:90px;height:90px;border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,.5);
       background:#fff;
     }
-    h1{margin:0; font-size:22px;}
-    .sub{opacity:.95; margin-top:4px; font-size:14px;}
-    .back{display:inline-block; margin-top:10px; color:#fff; text-decoration:underline; font-size:14px;}
+    h1{margin:0;font-size:26px;line-height:1.2;}
+    header .sub{opacity:.95;margin-top:6px;font-size:14px;}
+    .back{display:inline-block;margin-top:10px;color:#fff;text-decoration:underline;font-size:14px;}
 
-    main{max-width:1000px; margin:24px auto; padding:0 16px;}
+    main{max-width:1000px;margin:24px auto;padding:0 16px;}
     .card{
       background:var(--card);
-      border:1px solid var(--line);
       border-radius:12px;
       padding:18px;
       box-shadow:0 4px 10px rgba(0,0,0,.08);
       margin-bottom:16px;
+      border:1px solid var(--line);
     }
-    h2{margin:0 0 10px 0; color:var(--blue);}
-    p{margin:0 0 10px 0; line-height:1.75; color:#333;}
-    ul{margin:0; padding-left:18px; color:#333; line-height:1.8;}
-    .grid{display:grid; grid-template-columns:1fr; gap:12px;}
-    @media (min-width: 900px){ .grid{grid-template-columns:1fr 1fr;} }
+    h2{margin:0 0 10px 0;color:var(--blue);font-size:18px;}
+    p{margin:0;color:#333;line-height:1.75;font-size:14px;}
+    ul{margin:8px 0 0 18px;color:#333;line-height:1.75;font-size:14px;}
+    li{margin:4px 0;}
 
-    .media img{width:100%; border-radius:10px; border:1px solid #eee; background:#f7f7f7;}
-    .video{position:relative; padding-top:56.25%; border-radius:10px; overflow:hidden; background:#000;}
-    .video iframe, .video video{position:absolute; inset:0; width:100%; height:100%;}
+    /* 标签 */
+    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#eef5ff;
+      border:1px solid #d7e8ff;
+      color:var(--blue);
+    }
 
-    footer{text-align:center; color:var(--muted); padding:20px;}
-    .muted{color:var(--muted); font-size:13px;}
+    /* 荣誉：文字全宽 + 证书图片区 */
+    .honor-text{line-height:1.75;margin:0;}
+    .cert-area{margin-top:14px;}
+    .cert-title{font-size:14px;color:#666;margin:0 0 10px 0;}
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:12px;
+    }
+    .cert-item{
+      border:1px dashed #cfd8ef;
+      border-radius:10px;
+      background:#f9fbff;
+      overflow:hidden;
+      min-height:160px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#8892a8;
+      font-size:13px;
+      text-align:center;
+      padding:10px;
+    }
+    .cert-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    footer{text-align:center;color:#666;padding:20px;font-size:13px;}
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="wrap">
-    <!-- 上传扬子江老师照片到 assets 后，把下面 src 改成 ../assets/扬子江.jpg -->
-    <img src="../assets/yang_placeholder.jpg" alt="扬子江">
+    <!-- 若已上传：把 src 改为 ../assets/扬子江.jpg -->
+    <img src="../assets/yang_placeholder.jpg" alt="扬子江老师" />
     <div>
-      <h1>扬子江 老师</h1>
-      <div class="sub">讲师 / 硕士生导师 · 山东科技大学 电气与自动化工程学院</div>
+      <h1>扬子江 讲师</h1>
+      <div class="sub">博士 · 硕士生导师 · 山东科技大学 电气与自动化工程学院（青岛校区）</div>
       <a class="back" href="../index.html#people">← 返回师资队伍</a>
-      <div class="sub muted" style="margin-top:8px;">
-        学校信息参考：<a href="https://xindian.sdust.edu.cn/info/1045/5324.htm" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">官网页面</a>
+      <div class="sub" style="margin-top:8px;opacity:.95;">
+        官网信息：<a href="https://xindian.sdust.edu.cn/info/1045/5324.htm" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">学院主页</a>
       </div>
     </div>
   </div>
@@ -71,51 +119,65 @@
   <section class="card">
     <h2>个人简介</h2>
     <p>
-      （请把这里替换成杨子江老师的个人简介：教育经历、工作经历、研究方向概述等。）
+      扬子江，男，博士，讲师，硕士生导师，青岛校区教师。
+      2005年7月毕业于太原理工大学自动化专业，获工学学士学位；
+      2012年6月毕业于北京大学控制理论与控制工程专业，获工学硕士学位；
+      2021年12月毕业于山东科技大学控制理论与控制工程专业，获工学博士学位。
+      2022年3月至今任职于山东科技大学电气与自动化工程学院。
+      目前主持山东省自然基金面上项目1项，主持国网山东省电力公司电力科学研究院自主科技项目等3项，
+      参与国家自然科学基金重点项目、面上项目、山东省科技示范工程等科技项目等。
+      在 IEEE Transactions on Control System Technology、IEEE Transactions on Automation Science and Engineering 等期刊及会议发表论文16篇，
+      授权国际发明专利4项、国家发明专利9项、实用新型专利2项、软件著作权2项，参编团体标准1项，
+      完成科技成果转化1项，参与完成科技成果3项；获得山东省/北京市/CAA 科技进步奖二等奖等多项奖励与荣誉。
     </p>
-    <p class="muted">提示：你可以直接从官网页面复制文字放这里，再做适当分段。</p>
+
+    <div class="tags" aria-label="研究关键词">
+      <span class="tag">工业过程异常监测</span>
+      <span class="tag">发电系统性能评价</span>
+      <span class="tag">控制理论与控制工程</span>
+      <span class="tag">电力工业数据分析</span>
+    </div>
   </section>
 
   <section class="card">
     <h2>研究方向</h2>
     <ul>
       <li>工业过程异常监测</li>
-      <li>发电系统性能评价</li>
-      <li>（按官网补充/修改）</li>
+      <li>发电系统性能评价等</li>
     </ul>
+    <p style="margin-top:10px;color:#666;">
+      所带研究生专业：电气工程及自动化、控制理论与控制工程等。
+    </p>
   </section>
 
   <section class="card">
-    <h2>代表性成果</h2>
-    <p class="muted">（可选）这里可以放几条代表性论文/项目/专利，或者链接到“研究成果”页面。</p>
-    <ul>
-      <li>论文：XXXX, 20XX</li>
-      <li>项目：XXXX, 20XX</li>
-      <li>专利：XXXX, 20XX</li>
-    </ul>
-  </section>
+    <h2>所获荣誉</h2>
+    <p class="honor-text">
+      代表性奖励与荣誉可在此集中展示（例如：科技进步奖、优秀论文、学术奖励等）。
+      下方预留证书/获奖证明图片区域，上传图片后按示例替换即可。
+    </p>
 
-  <section class="card media">
-    <h2>图片与视频（可选）</h2>
-    <div class="grid">
-      <div>
-        <img src="../assets/placeholder_lab.jpg" alt="图片占位">
-        <p class="muted" style="margin-top:8px;">这里可放荣誉证书、实验平台、现场照片等。</p>
+    <div class="cert-area">
+      <p class="cert-title">荣誉证书 / 奖励证明（图片展示区）</p>
+      <div class="cert-grid">
+        <div class="cert-item">证书图片位 1<br/>（替换成 &lt;img&gt;）</div>
+        <div class="cert-item">证书图片位 2</div>
+        <div class="cert-item">证书图片位 3</div>
+        <div class="cert-item">证书图片位 4</div>
       </div>
-      <div>
-        <div class="video">
-          <!-- 如需本地视频，把下面改成 <video controls> 并指向 ../assets/videos/xxx.mp4 -->
-          <iframe src="about:blank" title="视频占位"></iframe>
-        </div>
-        <p class="muted" style="margin-top:8px;">这里可放介绍视频（本地 mp4 / 或后续替换）。</p>
+
+      <!-- 示例（上传后使用）：
+      <div class="cert-item">
+        <img src="../assets/certs/yang_award1.jpg" alt="xxx奖证书">
       </div>
+      -->
     </div>
   </section>
 
   <section class="card">
     <h2>联系方式</h2>
-    <p>Email：xxxxxxxx@sdust.edu.cn（按官网替换）</p>
-    <p>电话：1XXXXXXXXXX（按官网替换）</p>
+    <p>电话：15615725891</p>
+    <p>Email：zijiang_yang@sdust.edu.cn</p>
   </section>
 </main>
 
