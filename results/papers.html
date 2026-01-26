@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>论文 | 研究成果</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root{
+      --blue:#1f3c88; --bg:#f6f7fb; --card:#fff; --line:#e7eefc; --text:#222; --muted:#666;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);}
+    a{color:var(--blue);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    header{background:linear-gradient(180deg,#2b7bd7,#1f3c88);color:#fff;padding:22px 16px;}
+    header .wrap{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+    header h1{margin:0;font-size:20px;}
+    header .nav a{color:#fff;text-decoration:underline;font-size:14px;margin-left:12px;}
+
+    main{max-width:1100px;margin:16px auto;padding:0 16px 30px;}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      box-shadow:0 6px 16px rgba(0,0,0,.06);
+    }
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+    .search{
+      flex:1 1 260px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      outline:none;
+      background:#fff;
+    }
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#eef5ff;
+      border:1px solid #d7e8ff;
+      color:var(--blue);
+    }
+    .year{margin:16px 0 8px 0;color:var(--blue);font-weight:800;font-size:16px;}
+    .list{margin:0;padding-left:18px;line-height:1.75;}
+    .meta{color:var(--muted);font-size:13px;}
+    .item{margin:8px 0;}
+    footer{text-align:center;color:var(--muted);padding:18px 0;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>研究成果 · 论文</h1>
+    <div class="nav">
+      <a href="../index.html#results">← 返回主页</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <div class="toolbar">
+      <input id="q" class="search" type="search" placeholder="搜索：作者/题目/期刊/关键词…" />
+      <span class="pill">可在本页追加条目</span>
+    </div>
+
+    <div class="meta">建议按年份分组维护；如有 DOI/链接，可加在题目后面。</div>
+
+    <div class="year">2024</div>
+    <ol class="list">
+      <li class="item">
+        Wang et al., <strong>Neural-inspired Memristive Control Systems</strong>, IEEE TNNLS, 2024.
+        <span class="meta">（DOI/链接可选）</span>
+      </li>
+    </ol>
+
+    <div class="year">2023</div>
+    <ol class="list">
+      <li class="item">
+        Wang et al., <strong>Predictive Heating Control via Data-driven Models</strong>, Energy, 2023.
+      </li>
+    </ol>
+
+    <div class="year">2022</div>
+    <ol class="list">
+      <li class="item">
+        Zhang et al., <strong>Distribution Network Fault Diagnosis via Data-driven Methods</strong>, 2022.
+      </li>
+    </ol>
+
+    <p class="meta" style="margin-top:14px;">
+      条目模板：<br>
+      Wang/ Zhang et al., &lt;strong&gt;Title&lt;/strong&gt;, Journal/Conf., Year.（DOI/URL 可选）
+    </p>
+  </section>
+
+  <footer>© 2026 Professor Wang Lab</footer>
+</main>
+
+<script>
+  // 简易前端搜索（不需要任何库）
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const kw = q.value.trim().toLowerCase();
+    const items = document.querySelectorAll('.item');
+    items.forEach(li => {
+      const hit = li.innerText.toLowerCase().includes(kw);
+      li.style.display = hit ? '' : 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
