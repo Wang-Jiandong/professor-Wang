@@ -102,26 +102,25 @@
   <h2>团队成员</h2>
 
   <div class="people-grid">
-<a href="people/wang.html" style="text-decoration:none; color:inherit;">
-  <div class="person-card" style="cursor:pointer;">
-    <img src="assets/屏幕截图 2026-01-25 220552.jpg" alt="王教授" class="avatar">
-    <div>
-      <h3>王某某 教授（PI）</h3>
-      <p><strong>职称：</strong>教授 / 博士生导师</p>
-      <p><strong>单位：</strong>XXX大学 电气与自动化工程学院</p>
-      <p><strong>研究方向：</strong></p>
-      <ul>
-        <li>建筑供热/制冷系统预测控制</li>
-        <li>压缩机建模与参数辨识</li>
-        <li>忆阻器 / EC-RAM 神经形态计算</li>
-        <li>强化学习与物理智能系统</li>
-      </ul>
-      <p><strong>Email：</strong> wanglab@xxx.edu.cn</p>
-    </div>
-  </div>
-</a>
+    <a class="person-link" href="people/wang.html">
+      <div class="person-card">
+        <img class="person-avatar" src="assets/屏幕截图 2026-01-25 220552.jpg" alt="王教授">
+        <div class="person-meta">
+          <h3>王某某 教授（PI）</h3>
+          <p>XXX大学 电气与自动化工程学院</p>
+          <p>研究方向：系统辨识｜性能评价｜异常监控｜优化调度｜工业大数据</p>
+          <div class="person-tags">
+            <span class="tag">动态系统辨识</span>
+            <span class="tag">控制优化</span>
+            <span class="tag">异常监控</span>
+          </div>
+          <p style="margin-top:10px;color:#1f3c88;">点击查看详细介绍 →</p>
+        </div>
+      </div>
+    </a>
   </div>
 </section>
+
 
 
 <section id="publications">
@@ -162,4 +161,46 @@
   display: block;
   max-height: 520px;         /* 你可以改成 420/600 等 */
   background: #000;          /* 真遇到黑边也至少干净 */
+}
+/* ===== People cards ===== */
+.people-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:16px;
+  margin-top:12px;
+}
+.person-link{ text-decoration:none; color:inherit; }
+.person-card{
+  background:#fff;
+  border:1px solid #e7eefc;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.person-card:hover{
+  transform: translateY(-2px);
+  box-shadow:0 10px 22px rgba(0,0,0,.10);
+}
+.person-avatar{
+  width:92px; height:120px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #eee;
+  flex:0 0 auto;
+  background:#f7f7f7;
+}
+.person-meta h3{ margin:0; font-size:16px; }
+.person-meta p{ margin:6px 0 0 0; color:#444; font-size:13px; line-height:1.35; }
+.person-tags{ margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+.tag{
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:#eef5ff;
+  color:#1f3c88;
+  border:1px solid #d7e8ff;
 }
