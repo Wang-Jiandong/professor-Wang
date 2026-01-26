@@ -23,7 +23,10 @@
       color:#fff;
       padding:22px 16px;
     }
-    header .wrap{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+    header .wrap{
+      max-width:1100px;margin:0 auto;
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+    }
     header h1{margin:0;font-size:20px;}
     header .nav a{color:#fff;text-decoration:underline;font-size:14px;margin-left:12px;}
 
@@ -35,14 +38,8 @@
       padding:16px;
       box-shadow:0 6px 16px rgba(0,0,0,.06);
     }
-    .hint{color:var(--muted);font-size:13px;margin:10px 0 0 0;}
-    .list{
-      margin:0;
-      padding-left:18px;
-      line-height:1.75;
-    }
-    .meta{color:var(--muted);font-size:13px;}
-    .item{margin:10px 0;}
+    .meta{color:var(--muted);font-size:13px;line-height:1.65;}
+    .item{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;}
     .tag{
       display:inline-block;
       font-size:12px;
@@ -53,11 +50,15 @@
       color:var(--blue);
       margin-right:6px;
     }
-    footer{text-align:center;color:var(--muted);padding:18px 0;}
+    .title{margin:8px 0 6px 0;font-size:16px;}
+    .kv{margin:4px 0;}
+    .kv b{color:#333;}
+    .hint{margin-top:12px;color:var(--muted);font-size:13px;}
+    footer{text-align:center;color:var(--muted);padding:18px 0;font-size:13px;}
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="wrap">
     <h1>研究成果 · 学术专著</h1>
@@ -70,35 +71,57 @@
 
 <main>
   <section class="card">
-    <p class="meta">说明：这里按时间/主题维护专著条目。你后续只需复制一行“条目模板”追加即可。</p>
+    <p class="meta">
+      说明：本页集中展示实验室已出版的学术专著信息（可按年份继续追加）。
+    </p>
 
-    <ol class="list">
-      <li class="item">
-        <span class="tag">中文专著</span>
-        <strong>《智能工业报警系统》</strong>
-        <div class="meta">作者：X；出版社：X；出版时间：20XX；ISBN：XXXXXXXX</div>
-        <div class="meta">简介：用 1–2 句话写该书内容与特色（可选）。</div>
-      </li>
+    <!-- 中文专著 -->
+    <div class="item">
+      <span class="tag">中文专著</span>
+      <h2 class="title">《智能工业报警系统》</h2>
 
-      <li class="item">
-        <span class="tag">英文专著</span>
-        <strong>Intelligent Industrial Alarm Systems: Advanced Analysis and Design Methods</strong>
-        <div class="meta">Authors: X; Publisher: X; Year: 20XX; ISBN: XXXXXXXX</div>
-        <div class="meta">Brief: 1–2 sentences about scope and contributions (optional).</div>
-      </li>
-    </ol>
+      <div class="meta kv"><b>作者：</b>王建东</div>
+      <div class="meta kv"><b>出版社：</b>机械工业出版社</div>
+      <div class="meta kv"><b>出版时间：</b>2021年5月（部分书目显示 2021-05-01 / 2021-05-18）</div>
+      <div class="meta kv"><b>ISBN：</b>9787111676775（亦见：7111676777）</div>
+      <div class="meta kv"><b>定价：</b>约 ¥69.00（以出版社发行信息为准）</div>
 
-    <p class="hint">条目模板（复制粘贴后改内容）：<br>
+      <div class="meta" style="margin-top:8px;">
+        <b>内容概述：</b>围绕工业报警系统的设计、性能评价与智能化分析方法展开，
+        以减少误报、抑制报警洪泛、提升报警系统可用性与安全性为目标，
+        系统介绍相关理论方法与工程实践思路。
+      </div>
+    </div>
+
+    <!-- 英文专著 -->
+    <div class="item">
+      <span class="tag">英文专著</span>
+      <h2 class="title">Intelligent Industrial Alarm Systems: Advanced Analysis and Design Methods</h2>
+
+      <div class="meta kv"><b>Authors：</b>Jiandong Wang; Wenkai Hu; Tongwen Chen</div>
+      <div class="meta kv"><b>Publisher：</b>Springer / Springer Nature (Singapore)</div>
+      <div class="meta kv"><b>Publication date：</b>Nov 5, 2024（书目页面常见标注）</div>
+      <div class="meta kv"><b>Print ISBN：</b>978-981-97-6515-7 / 978-9819765157（不同书目系统会显示不同版本号）</div>
+      <div class="meta kv"><b>eBook ISBN：</b>978-981-97-6516-4 / 9789819765164（不同书目系统会显示不同版本号）</div>
+      <div class="meta kv"><b>DOI（eBook）：</b>10.1007/978-981-97-6516-4</div>
+      <div class="meta kv"><b>Pages：</b>约 439–440 页（不同渠道显示略有差异）</div>
+
+      <div class="meta" style="margin-top:8px;">
+        <b>Brief：</b>This book provides systematic methodologies, practical techniques, and analytic tools
+        for industrial alarm system design and performance improvement, covering univariate/multivariate alarm design,
+        root-cause analysis, and alarm flood analysis.
+      </div>
+    </div>
+
+    <p class="hint">
+      追加模板（复制一整个 .item 块即可）：<br/>
       <span class="meta">
-        &lt;li class="item"&gt;&lt;span class="tag"&gt;类型&lt;/span&gt; &lt;strong&gt;书名&lt;/strong&gt;
-        &lt;div class="meta"&gt;作者/出版社/年份/ISBN&lt;/div&gt;
-        &lt;div class="meta"&gt;简介（可选）&lt;/div&gt;&lt;/li&gt;
+        &lt;div class="item"&gt;...&lt;/div&gt;
       </span>
     </p>
   </section>
 
   <footer>© 2026 Professor Wang Lab</footer>
 </main>
-
 </body>
 </html>
