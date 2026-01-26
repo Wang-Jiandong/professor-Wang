@@ -1,36 +1,112 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>王建东教授 | 个人主页</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body{font-family: "Segoe UI", Arial, sans-serif; margin:0; background:#f6f7fb; color:#222;}
-    header{background:#1f3c88; color:#fff; padding:28px 16px;}
-    header .wrap{max-width:1000px; margin:0 auto; display:flex; gap:16px; align-items:center;}
-    header img{width:90px; height:90px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.5);}
-    main{max-width:1000px; margin:24px auto; padding:0 16px;}
-    .card{background:#fff; border-radius:12px; padding:18px; box-shadow:0 4px 10px rgba(0,0,0,.08); margin-bottom:16px;}
-    h1{margin:0;}
-    h2{margin:0 0 10px 0; color:#1f3c88;}
-    .back{display:inline-block; margin-top:10px; color:#fff; text-decoration:underline;}
-    .grid{display:grid; grid-template-columns:1fr; gap:12px;}
-    @media (min-width: 900px){ .grid{grid-template-columns:1fr 1fr;} }
-    .media img{width:100%; border-radius:10px;}
-    .video{position:relative; padding-top:56.25%; border-radius:10px; overflow:hidden; background:#000;}
-    .video iframe, .video video{position:absolute; inset:0; width:100%; height:100%;}
-    footer{text-align:center; color:#666; padding:20px;}
+    :root{
+      --blue:#1f3c88;
+      --bg:#f6f7fb;
+      --card:#fff;
+      --line:#e7eefc;
+      --text:#222;
+      --muted:#666;
+    }
+    *{box-sizing:border-box;}
+    body{font-family:"Segoe UI", Arial, sans-serif;margin:0;background:var(--bg);color:var(--text);}
+    a{color:var(--blue);}
+
+    header{
+      background:#1f3c88;
+      color:#fff;
+      padding:28px 16px;
+    }
+    header .wrap{
+      max-width:1000px;
+      margin:0 auto;
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    header img{
+      width:90px;height:90px;border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,.5);
+      background:#fff;
+    }
+    h1{margin:0;font-size:26px;line-height:1.2;}
+    header .sub{opacity:.95;margin-top:6px;font-size:14px;}
+    .back{display:inline-block;margin-top:10px;color:#fff;text-decoration:underline;font-size:14px;}
+
+    main{max-width:1000px;margin:24px auto;padding:0 16px;}
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 4px 10px rgba(0,0,0,.08);
+      margin-bottom:16px;
+      border:1px solid var(--line);
+    }
+    h2{margin:0 0 10px 0;color:var(--blue);font-size:18px;}
+    p{margin:0;color:#333;line-height:1.75;font-size:14px;}
+    ul{margin:8px 0 0 18px;color:#333;line-height:1.75;font-size:14px;}
+    li{margin:4px 0;}
+
+    /* 标签 */
+    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#eef5ff;
+      border:1px solid #d7e8ff;
+      color:var(--blue);
+    }
+
+    /* 荣誉：文字全宽 + 证书图片区 */
+    .honor-text{line-height:1.75;margin:0;}
+    .cert-area{margin-top:14px;}
+    .cert-title{font-size:14px;color:#666;margin:0 0 10px 0;}
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:12px;
+    }
+    .cert-item{
+      border:1px dashed #cfd8ef;
+      border-radius:10px;
+      background:#f9fbff;
+      overflow:hidden;
+      min-height:160px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#8892a8;
+      font-size:13px;
+      text-align:center;
+      padding:10px;
+    }
+    .cert-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    footer{text-align:center;color:#666;padding:20px;font-size:13px;}
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="wrap">
-    <img src="../assets/屏幕截图 2026-01-25 220552.jpg" alt="王教授">
+    <img src="../assets/屏幕截图 2026-01-25 220552.jpg" alt="王建东教授" />
     <div>
-      <h1>王建东 教授</h1>
-      <div>山东科技大学 · 电气与自动化工程学院</div>
-      <a class="back" href="../index.html#people">← 返回团队成员</a>
+      <h1>王建东 教授（PI）</h1>
+      <div class="sub">山东科技大学 · 电气与自动化工程学院（青岛校区）</div>
+      <a class="back" href="../index.html#people">← 返回师资队伍</a>
     </div>
   </div>
 </header>
@@ -39,88 +115,69 @@
   <section class="card">
     <h2>个人简介</h2>
     <p>
-王建东，博士、山东科技大学电气与自动化工程学院教授、博士生导师。
-
-2006年博士毕业于加拿大阿尔伯塔(Alberta)大学电气与计算机工程系，2007-2016年担任北京大学工学院讲师/副教授/教授、博士生导师、智能电网技术研究所所长，2017年至今担任山东科技大学电气与自动化工程学院教授、博士生导师、山东省电力工业大数据创新实验室主任、山东省高校电力工业大数据青创团队负责人，2023年至今担任山东省泰山学者特聘专家。针对电力工业等流程工业在安全生产和高效运行中出现的科学技术问题，开展了报警系统、控制系统、调度系统的性能评价与优化研究工作，    主持国家基金重点项目等科研项目20多项，在IEEE Transactions on Industrial Electronics等学术期刊以及IFAC World
-    Congress等学术会议上发表SCI/EI收录论文150多篇，作为第一发明人获授权发明专利30余项，作为第一完成人获中国自动化学会科技进步一等奖、
-    山东省科技进步二等奖、北京市科技进步二等奖等科技奖励。担任IEEE高级会员、中国自动化学会过程控制专委会委员、故障诊断与安全性专委会委员、
-    国际SCI期刊Journal of Franklin Institute和Systems & Control Letters编委、国内核心期刊《系统科学与数学》《控制工程》编委。
+      王建东，博士、山东科技大学电气与自动化工程学院教授、博士生导师。
+      2006年博士毕业于加拿大阿尔伯塔（Alberta）大学电气与计算机工程系；
+      2007—2016年任北京大学工学院讲师/副教授/教授、博士生导师、智能电网技术研究所所长；
+      2017年至今任山东科技大学电气与自动化工程学院教授、博士生导师；
+      现任山东省电力工业大数据创新实验室主任、山东省高校电力工业大数据青创团队负责人，
+      2023年至今任山东省泰山学者特聘专家。围绕电力工业等流程工业在安全生产和高效运行中出现的关键问题，
+      开展报警系统、控制系统、调度系统的性能评价与优化研究工作。 :contentReference[oaicite:1]{index=1}
     </p>
+
+    <div class="tags" aria-label="研究关键词">
+      <span class="tag">动态系统辨识</span>
+      <span class="tag">控制性能评价与优化</span>
+      <span class="tag">异常工况监控</span>
+      <span class="tag">运行优化调度</span>
+      <span class="tag">工业大数据分析</span>
+    </div>
   </section>
 
   <section class="card">
     <h2>研究方向</h2>
     <ul>
-      <li>建筑供热/制冷系统预测控制</li>
       <li>动态系统辨识</li>
       <li>控制性能评价与优化</li>
       <li>异常工况监控</li>
-            <li>运行优化调度</li>
-
+      <li>运行优化调度</li>
+      <li>工业大数据分析</li>
+      <li>面向发电、输配电、用电等电力工业关键环节的应用</li>
     </ul>
+    <p style="margin-top:10px;color:#666;">
+      所带研究生专业：控制科学与工程、电力系统自动化。 :contentReference[oaicite:2]{index=2}
+    </p>
   </section>
 
-<section class="card media">
-  <h2>所获荣誉</h2>
+  <section class="card">
+    <h2>所获荣誉</h2>
+    <p class="honor-text">
+      （可在此补充：代表性奖励/人才项目/重要学术任职等。下方预留荣誉证书或奖状图片展示位，上传图片后按示例替换即可。）
+    </p>
 
-  <!-- 文字：全宽 -->
-  <p class="honor-text">
-
-  </p>
-
-  <!-- 证书图片区：预留位置（以后把占位替换成图片） -->
-  <div class="cert-area">
-    <p class="cert-title">荣誉证书 / 奖励证明（可上传多张图片）</p>
-
-    <div class="cert-grid">
-      <!-- 占位 1：以后替换成 <img src="../assets/certs/xxx.jpg" alt="..."> -->
-      <div class="cert-item">证书图片位 1</div>
-      <div class="cert-item">证书图片位 2</div>
-      <div class="cert-item">证书图片位 3</div>
-      <div class="cert-item">证书图片位 4</div>
+    <div class="cert-area">
+      <p class="cert-title">荣誉证书 / 奖励证明（图片展示区）</p>
+      <div class="cert-grid">
+        <div class="cert-item">证书图片位 1<br/>（替换成 &lt;img&gt;）</div>
+        <div class="cert-item">证书图片位 2</div>
+        <div class="cert-item">证书图片位 3</div>
+        <div class="cert-item">证书图片位 4</div>
+      </div>
+      <!-- 示例（上传后使用）：
+      <div class="cert-item">
+        <img src="../assets/certs/wang_award1.jpg" alt="xxx奖证书">
+      </div>
+      -->
     </div>
-  </div>
-</section>
-
-
- 
+  </section>
 
   <section class="card">
     <h2>联系方式</h2>
+    <p>电话：18600779436</p>
     <p>Email：jiandong@sdust.edu.cn</p>
-    <p>办公地点：J11楼 110室</p>
+    <p style="margin-top:8px;color:#666;">（以上联系方式来源于学院导师主页信息）</p>
   </section>
 </main>
 
 <footer>© 2026 Professor Wang Lab</footer>
 </body>
 </html>
-<style>
-  /* === 荣誉区：文字全宽 + 证书图片区 === */
-  .honor-text{line-height:1.75; margin:0;}
-  .cert-area{margin-top:14px;}
-  .cert-title{font-size:14px; color:#666; margin:0 0 10px 0;}
-  .cert-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-    gap:12px;
-  }
-  .cert-item{
-    border:1px dashed #cfd8ef;
-    border-radius:10px;
-    background:#f9fbff;
-    overflow:hidden;
-    min-height:160px; /* 预留高度 */
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#8892a8;
-    font-size:13px;
-  }
-  .cert-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-</style>
