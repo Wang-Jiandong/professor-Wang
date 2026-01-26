@@ -81,7 +81,12 @@
     <!-- 方案B：放本地 mp4（可选，文件会占仓库体积） -->
     <p style="color:#666;">方案B：本地 mp4（把 mp4 上传到 assets 后改路径）</p>
     <div class="video">
-      <video controls src="../assets/demo.mp4"></video>
+<div class="video">
+  <video controls preload="metadata" playsinline>
+    <source src="../assets/videos/shipin_Trim.mp4" type="video/mp4">
+    你的浏览器不支持 HTML5 视频播放。
+  </video>
+</div>
     </div>
   </section>
 
