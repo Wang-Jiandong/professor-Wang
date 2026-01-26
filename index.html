@@ -75,13 +75,32 @@
 
 <section id="research">
   <h2>研究方向</h2>
+
+  <p>
+    本实验室面向智能控制与能源系统优化，结合物理建模、数据驱动与神经形态器件，
+    开展从算法到硬件验证的一体化研究。
+  </p>
+
   <ul>
     <li>建筑供热/制冷系统预测控制</li>
     <li>压缩机建模与参数辨识</li>
     <li>忆阻器 / EC-RAM 神经形态计算</li>
     <li>强化学习与物理智能系统</li>
   </ul>
+
+  <h3 style="margin-top:16px;">研究方向视频展示</h3>
+  <div class="video-wrap">
+    <video class="video-fit" controls preload="metadata" playsinline>
+      <source src="assets/videos/shipin_Trim.mp4" type="video/mp4">
+      你的浏览器不支持 HTML5 视频播放。
+    </video>
+  </div>
+
+  <p style="color:#666; margin-top:10px;">
+    如需替换视频：将 mp4 上传到 <code>assets/videos/</code>，并把上面路径改成你的文件名即可。
+  </p>
 </section>
+
 
 <section id="people">
   <h2>团队成员</h2>
@@ -129,3 +148,22 @@
 
 </body>
 </html>
+/* 研究方向里的视频容器：自适应，不强行 16:9，尽量减少黑边 */
+.video-wrap{
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;   /* 不要黑底 */
+  border: 1px solid #eee;
+}
+
+/* 关键：让视频占满宽度，同时保持比例 */
+.video-fit{
+  width: 100%;
+  height: auto;              /* 按比例自适应 */
+  display: block;
+  max-height: 520px;         /* 你可以改成 420/600 等 */
+  background: #000;          /* 真遇到黑边也至少干净 */
+}
