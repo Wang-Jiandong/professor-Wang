@@ -7,29 +7,22 @@
   <style>
     :root{
       --blue:#1f3c88;
-      --blueDeep:#0e2f78;
       --bg:#f6f7fb;
       --card:#fff;
       --line:#e7eefc;
       --text:#222;
       --muted:#666;
-      --shadow:0 10px 24px rgba(0,0,0,.08);
-      --radius:14px;
-      --sidebarW:240px;
     }
     *{box-sizing:border-box;}
-    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);}
+    body{margin:0;font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;background:var(--bg);color:var(--text);}
     a{color:var(--blue);text-decoration:none;}
     a:hover{text-decoration:underline;}
 
-    /* ===== 左侧固定导航（frame）===== */
+    /* ====== 统一：左侧固定导航（与主页一致） ====== */
     .sidebar{
-      position:fixed;
-      top:0; left:0;
-      width:var(--sidebarW);
-      height:100vh;
-      background:var(--blueDeep);
-      color:#fff;
+      position:fixed; top:0; left:0;
+      width:240px; height:100vh;
+      background:#0e2f78; color:#fff;
       padding:16px 12px;
       border-right:1px solid rgba(255,255,255,.12);
       overflow-y:auto;
@@ -51,40 +44,40 @@
 
     .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
     .nav a{
-      display:block;
-      padding:10px 10px;
+      display:block;padding:10px 10px;
       border:1px solid rgba(255,255,255,.25);
-      border-radius:8px;
-      color:#fff;
+      border-radius:10px;color:#fff;
       background:rgba(255,255,255,.08);
-      font-weight:800;
-      font-size:13px;
-      text-align:center;
-      transition:.15s ease;
+      font-weight:800;font-size:13px;
+      text-align:center;text-decoration:none;
+      transition:background .15s ease, transform .12s ease;
     }
-    .nav a:hover{background:rgba(255,255,255,.16);text-decoration:none;}
-    .nav a.active{background:#fff;color:var(--blueDeep);border-color:#fff;}
+    .nav a:hover{background:rgba(255,255,255,.16);transform:translateY(-1px);}
+    .nav a.active{background:#fff;color:#0e2f78;border-color:#fff;}
 
-    /* ===== 右侧内容整体让位 + 独立滚动 ===== */
+    /* ====== 统一：右侧内容让出 240px ====== */
     .main{
-      margin-left:var(--sidebarW);
+      margin-left:240px;
       min-height:100vh;
+      padding:18px 18px 28px;
     }
 
-    /* ===== 下面开始：你原来的样式（内容一字不删）===== */
+    /* ====== 你原来的内容样式（不删） ====== */
     header{
       background:linear-gradient(180deg,#2b7bd7,#1f3c88);
       color:#fff;
       padding:22px 16px;
+      border-radius:14px;
+      max-width:1100px;
+      margin:0 auto 14px;
     }
     header .wrap{
-      max-width:1100px;margin:0 auto;
       display:flex;justify-content:space-between;align-items:center;gap:12px;
     }
     header h1{margin:0;font-size:20px;}
-    header .nav2 a{color:#fff;text-decoration:underline;font-size:14px;margin-left:12px;}
+    header .navtop a{color:#fff;text-decoration:underline;font-size:14px;margin-left:12px;}
 
-    main{max-width:1100px;margin:16px auto;padding:0 16px 30px;}
+    main{max-width:1100px;margin:0 auto;padding:0 0 30px;}
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -109,28 +102,16 @@
     .kv b{color:#333;}
     .hint{margin-top:12px;color:var(--muted);font-size:13px;}
     footer{text-align:center;color:var(--muted);padding:18px 0;font-size:13px;}
-
-    /* 小屏适配 */
-    @media (max-width: 980px){
-      :root{ --sidebarW:230px; }
-      .sidebar{width:var(--sidebarW);}
-      .main{margin-left:var(--sidebarW);}
-    }
-    @media (max-width: 720px){
-      /* 手机端：侧栏改为顶部（可选），这里先保持固定侧栏不变 */
-    }
   </style>
 </head>
 
 <body>
-
-  <!-- 左侧固定导航栏（不会消失） -->
+  <!-- 左侧固定导航栏（子页面：链接用 ../） -->
   <aside class="sidebar">
     <div class="brand">
       <div class="avatar">LAB</div>
       <div>
-        <h1>智能电网实验室</h1>
-      </div>
+        <h1>智能电网实验室</h1>      </div>
     </div>
 
     <nav class="nav">
@@ -143,13 +124,13 @@
     </nav>
   </aside>
 
-  <!-- 右侧内容（你原内容原样保留） -->
+  <!-- 右侧内容区域（保持你原内容不删） -->
   <div class="main">
 
     <header>
       <div class="wrap">
         <h1>研究成果 · 学术专著</h1>
-        <div class="nav2">
+        <div class="navtop">
           <a href="../results.html">← 返回研究成果</a>
         </div>
       </div>
