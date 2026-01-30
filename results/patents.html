@@ -7,27 +7,22 @@
   <style>
     :root{
       --blue:#1f3c88;
-      --blueDeep:#0e2f78;
       --bg:#f6f7fb;
       --card:#fff;
       --line:#e7eefc;
       --text:#222;
       --muted:#666;
-      --sidebarW:240px;
     }
     *{box-sizing:border-box;}
-    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);}
+    body{margin:0;font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;background:var(--bg);color:var(--text);}
     a{color:var(--blue);text-decoration:none;}
     a:hover{text-decoration:underline;}
 
-    /* ===== 左侧固定导航（frame）：改成与主页一致的 .nav ===== */
+    /* ====== 统一：左侧固定导航（与“学术专著”一致） ====== */
     .sidebar{
-      position:fixed;
-      top:0; left:0;
-      width:var(--sidebarW);
-      height:100vh;
-      background:var(--blueDeep);
-      color:#fff;
+      position:fixed; top:0; left:0;
+      width:240px; height:100vh;
+      background:#0e2f78; color:#fff;
       padding:16px 12px;
       border-right:1px solid rgba(255,255,255,.12);
       overflow-y:auto;
@@ -47,38 +42,43 @@
     .brand h1{margin:0;font-size:16px;line-height:1.2;}
     .brand p{margin:4px 0 0;font-size:12px;opacity:.9;line-height:1.3;}
 
-    /* ✅ 统一侧栏按钮样式：用 .nav（和主页一致） */
     .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
     .nav a{
-      display:block;
-      padding:10px 10px;
+      display:block;padding:10px 10px;
       border:1px solid rgba(255,255,255,.25);
-      border-radius:10px;
-      color:#fff;
+      border-radius:10px;color:#fff;
       background:rgba(255,255,255,.08);
-      font-weight:800;
-      font-size:13px;
-      text-align:center;
-      text-decoration:none;
+      font-weight:800;font-size:13px;
+      text-align:center;text-decoration:none;
       transition:background .15s ease, transform .12s ease;
     }
-    .nav a:hover{background:rgba(255,255,255,.16);text-decoration:none;transform:translateY(-1px);}
-    .nav a.active{background:#fff;color:var(--blueDeep);border-color:#fff;}
+    .nav a:hover{background:rgba(255,255,255,.16);transform:translateY(-1px);}
+    .nav a.active{background:#fff;color:#0e2f78;border-color:#fff;}
 
-    /* ===== 右侧内容整体让位 ===== */
+    /* ====== 统一：右侧内容让出 240px（与“学术专著”一致） ====== */
     .main{
-      margin-left:var(--sidebarW);
+      margin-left:240px;
       min-height:100vh;
+      padding:18px 18px 28px;
     }
 
-    /* ===== 下面开始：你原来的样式（内容一字不删）===== */
-    header{background:linear-gradient(180deg,#2b7bd7,#1f3c88);color:#fff;padding:22px 16px;}
-    header .wrap{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+    /* ====== 顶部 header：与“学术专著”一致（圆角卡片） ====== */
+    header{
+      background:linear-gradient(180deg,#2b7bd7,#1f3c88);
+      color:#fff;
+      padding:22px 16px;
+      border-radius:14px;
+      max-width:1100px;
+      margin:0 auto 14px;
+    }
+    header .wrap{
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+    }
     header h1{margin:0;font-size:20px;}
-    /* ✅ 顶部返回链接改名为 navtop，避免和侧栏 .nav 冲突 */
     header .navtop a{color:#fff;text-decoration:underline;font-size:14px;margin-left:12px;}
 
-    main{max-width:1100px;margin:16px auto;padding:0 16px 30px;}
+    /* ====== 正文容器：与“学术专著”一致 ====== */
+    main{max-width:1100px;margin:0 auto;padding:0 0 30px;}
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -86,6 +86,9 @@
       padding:16px;
       box-shadow:0 6px 16px rgba(0,0,0,.06);
     }
+    .meta{color:var(--muted);font-size:13px;line-height:1.65;}
+
+    /* ====== 专利页面原有内容样式（保留你的内容） ====== */
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
     @media(max-width:900px){.grid{grid-template-columns:1fr;}}
     .box{
@@ -96,25 +99,17 @@
     }
     .box h2{margin:0 0 8px 0;color:var(--blue);font-size:16px;}
     .list{margin:0;padding-left:18px;line-height:1.75;}
-    .meta{color:var(--muted);font-size:13px;}
     .item{margin:8px 0;}
     .pill{
       display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;
       background:#eef5ff;border:1px solid #d7e8ff;color:var(--blue);margin-right:6px;
     }
-    footer{text-align:center;color:var(--muted);padding:18px 0;}
-
-    /* 小屏适配 */
-    @media (max-width: 980px){
-      :root{ --sidebarW:230px; }
-      .sidebar{width:var(--sidebarW);}
-      .main{margin-left:var(--sidebarW);}
-    }
+    footer{text-align:center;color:var(--muted);padding:18px 0;font-size:13px;}
   </style>
 </head>
 <body>
 
-  <!-- 左侧固定导航栏（不会消失） -->
+  <!-- 左侧固定导航栏（子页面：链接用 ../） -->
   <aside class="sidebar">
     <div class="brand">
       <div class="avatar">LAB</div>
@@ -123,7 +118,6 @@
       </div>
     </div>
 
-    <!-- ✅ navSide -> nav（与主页一致） -->
     <nav class="nav">
       <a href="../index.html">实验室简介</a>
       <a href="../news.html">实验室新闻</a>
@@ -134,13 +128,12 @@
     </nav>
   </aside>
 
-  <!-- 右侧内容（你原内容原样保留） -->
+  <!-- 右侧内容区域 -->
   <div class="main">
 
     <header>
       <div class="wrap">
         <h1>研究成果 · 专利</h1>
-        <!-- ✅ 这里改成 navtop -->
         <div class="navtop">
           <a href="../results.html">← 返回研究成果</a>
         </div>
