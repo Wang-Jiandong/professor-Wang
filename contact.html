@@ -11,13 +11,30 @@
       --text:#222; --muted:#666;
       --shadow:0 10px 24px rgba(0,0,0,.08);
       --radius:14px;
+
+      --sidebarW:240px;   /* ✅ 左侧栏固定宽度 */
+      --gap:18px;         /* ✅ 主区内边距 */
     }
     *{box-sizing:border-box;}
     body{margin:0;font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;background:var(--bg);color:var(--text);}
     a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
 
-    .layout{display:flex;min-height:100vh;}
-    .sidebar{width:240px;background:var(--blueDeep);color:#fff;padding:16px 12px;border-right:1px solid rgba(255,255,255,.12);}
+    /* ✅ 关键：页面两列布局（左固定，右滚动） */
+    .layout{min-height:100vh;}
+    .sidebar{
+      width:var(--sidebarW);
+      background:var(--blueDeep);
+      color:#fff;
+      padding:16px 12px;
+      border-right:1px solid rgba(255,255,255,.12);
+
+      position:fixed;     /* ✅ 固定不动 */
+      left:0; top:0;
+      height:100vh;       /* ✅ 撑满视口高度 */
+      overflow-y:auto;    /* ✅ 左侧内容过多时左侧自己滚动 */
+      z-index:10;
+    }
+
     .brand{display:flex;gap:10px;align-items:center;padding:10px 8px 14px;border-bottom:1px solid rgba(255,255,255,.18);margin-bottom:14px;}
     .brand .avatar{width:54px;height:54px;border-radius:10px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:900;letter-spacing:.5px;}
     .brand h1{margin:0;font-size:16px;line-height:1.2;}
@@ -28,13 +45,26 @@
     .nav a:hover{background:rgba(255,255,255,.16);text-decoration:none;}
     .nav a.active{background:#fff;color:var(--blueDeep);border-color:#fff;}
 
-    .main{flex:1;padding:18px;}
+    /* ✅ 右侧主内容：给左侧留出固定栏空间，并让右侧独立滚动 */
+    .main{
+      margin-left:var(--sidebarW); /* ✅ 给 fixed sidebar 腾位置 */
+      padding:var(--gap);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
     .page{max-width:1100px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:20px;}
     .title{margin:0 0 14px 0;font-size:20px;color:var(--blue);border-bottom:2px solid #eee;padding-bottom:10px;}
     .muted{color:var(--muted);font-size:13px;line-height:1.7;}
 
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
-    @media (max-width: 960px){ .grid{grid-template-columns:1fr;} }
+    @media (max-width: 960px){
+      /* ✅ 手机端：左侧固定栏会挡屏幕，所以改为非固定（更友好） */
+      .sidebar{position:static;width:auto;height:auto;}
+      .main{margin-left:0;}
+      .grid{grid-template-columns:1fr;}
+    }
+
     .card{
       border:1px solid var(--line);
       border-radius:var(--radius);
