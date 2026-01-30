@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
   <title>扬子江老师 | 个人主页</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <style>
     :root{
@@ -28,7 +28,7 @@
     a{color:var(--blue);text-decoration:none;}
     a:hover{text-decoration:underline;}
 
-    /* ========= 左侧固定导航（frame） ========= */
+    /* ===== 左侧固定导航（frame） ===== */
     .sidebar{
       position:fixed;
       top:0; left:0;
@@ -41,7 +41,9 @@
       overflow-y:auto;
     }
     .brand{
-      display:flex;gap:10px;align-items:center;
+      display:flex;
+      gap:10px;
+      align-items:center;
       padding:10px 8px 14px;
       border-bottom:1px solid rgba(255,255,255,.18);
       margin-bottom:14px;
@@ -52,8 +54,8 @@
       display:flex;align-items:center;justify-content:center;
       font-weight:900;
     }
-    .brand h1{margin:0;font-size:16px;}
-    .brand p{margin:4px 0 0;font-size:12px;opacity:.9;line-height:1.3;}
+    .brand h1{margin:0;font-size:16px;line-height:1.2;}
+    .brand p{margin:4px 0 0;font-size:12px;opacity:.9;}
 
     .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
     .nav a{
@@ -67,17 +69,16 @@
       font-size:13px;
       text-align:center;
     }
-    .nav a:hover{background:rgba(255,255,255,.16);text-decoration:none;}
     .nav a.active{background:#fff;color:var(--blueDeep);border-color:#fff;}
 
-    /* ========= 右侧主内容 ========= */
+    /* ===== 右侧内容 ===== */
     .main{
       margin-left:var(--sidebarW);
       padding:18px 18px 28px;
       min-height:100vh;
     }
 
-    /* 顶部个人条幅 */
+    /* 顶部教师信息条 */
     .hero{
       max-width:1000px;
       margin:0 auto 14px;
@@ -116,12 +117,12 @@
       border-radius:12px;
       padding:18px;
       box-shadow:0 6px 16px rgba(0,0,0,.06);
-      margin-bottom:14px;
+      margin-bottom:16px;
     }
-    h2{margin:0 0 10px 0;color:var(--blue);font-size:18px;}
-    p{margin:0;color:#333;line-height:1.85;font-size:14px;}
-    ul{margin:8px 0 0 18px;}
-    li{margin:4px 0;font-size:14px;}
+    h2{margin:0 0 10px;color:var(--blue);font-size:18px;}
+    p{margin:0;color:#333;line-height:1.75;font-size:14px;}
+    ul{margin:8px 0 0 18px;line-height:1.75;font-size:14px;}
+    li{margin:4px 0;}
 
     .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
     .tag{
@@ -137,7 +138,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
       gap:12px;
-      margin-top:10px;
+      margin-top:12px;
     }
     .cert-item{
       border:1px dashed #cfd8ef;
@@ -149,6 +150,8 @@
       justify-content:center;
       color:#8892a8;
       font-size:13px;
+      text-align:center;
+      padding:10px;
     }
 
     footer{
@@ -163,85 +166,95 @@
 
 <body>
 
-  <!-- 左侧固定导航（不会消失） -->
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="avatar">LAB</div>
+<!-- 左侧固定导航 -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="avatar">LAB</div>
+    <div>
+      <h1>智能电网实验室</h1>
+      <p>电气与自动化工程学院<br>山东科技大学</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="../index.html">实验室简介</a>
+    <a href="../news.html">实验室新闻</a>
+    <a class="active" href="../people.html">师资队伍</a>
+    <a href="../research.html">研究方向</a>
+    <a href="../results.html">研究成果</a>
+    <a href="../contact.html">联系方式</a>
+  </nav>
+</aside>
+
+<!-- 右侧内容 -->
+<main class="main">
+
+  <!-- 顶部 -->
+  <section class="hero">
+    <div class="wrap">
+      <img src="../assets/yangzijiang.jpg" alt="扬子江老师">
       <div>
-        <h1>智能电网实验室</h1>
-        <p>电气与自动化工程学院<br/>山东科技大学</p>
+        <h1>扬子江 讲师</h1>
+        <div class="sub">博士 · 硕士生导师 · 山东科技大学 电气与自动化工程学院（青岛校区）</div>
+        <a class="back" href="../people.html">← 返回师资队伍</a>
       </div>
     </div>
+  </section>
 
-    <!-- 当前页面在 people/ 目录 -->
-    <nav class="nav">
-      <a href="../index.html">实验室简介</a>
-      <a href="../news.html">实验室新闻</a>
-      <a class="active" href="../people.html">师资队伍</a>
-      <a href="../research.html">研究方向</a>
-      <a href="../results.html">研究成果</a>
-      <a href="../contact.html">联系方式</a>
-    </nav>
-  </aside>
+  <!-- 原内容（完全保留） -->
+  <div class="page">
 
-  <!-- 右侧内容 -->
-  <main class="main">
+    <section class="card">
+      <h2>个人简介</h2>
+      <p>
+        扬子江，男，博士，讲师，硕士生导师，青岛校区教师。
+        2005年7月毕业于太原理工大学自动化专业，获工学学士学位；
+        2012年6月毕业于北京大学控制理论与控制工程专业，获工学硕士学位；
+        2021年12月毕业于山东科技大学控制理论与控制工程专业，获工学博士学位。
+        2022年3月至今任职于山东科技大学电气与自动化工程学院。
+        目前主持山东省自然基金面上项目1项，主持国网山东省电力公司电力科学研究院自主科技项目等3项，
+        参与国家自然科学基金重点项目、面上项目、山东省科技示范工程等科技项目等。
+        在 IEEE Transactions on Control System Technology、IEEE Transactions on Automation Science and Engineering 等期刊及会议发表论文16篇，
+        授权国际发明专利4项、国家发明专利9项、实用新型专利2项、软件著作权2项，参编团体标准1项，
+        完成科技成果转化1项，参与完成科技成果3项；获得山东省/北京市/CAA 科技进步奖二等奖等多项奖励与荣誉。
+      </p>
 
-    <section class="hero">
-      <div class="wrap">
-        <img src="../assets/yangzijiang.jpg" alt="扬子江老师" />
-        <div>
-          <h1>扬子江 讲师</h1>
-          <div class="sub">博士 · 硕士生导师 · 山东科技大学 电气与自动化工程学院</div>
-          <a class="back" href="../people.html">← 返回师资队伍</a>
-        </div>
+      <div class="tags">
+        <span class="tag">工业过程异常监测</span>
+        <span class="tag">发电系统性能评价</span>
+        <span class="tag">控制理论与控制工程</span>
+        <span class="tag">电力工业数据分析</span>
       </div>
     </section>
 
-    <div class="page">
+    <section class="card">
+      <h2>研究方向</h2>
+      <ul>
+        <li>工业过程异常监测</li>
+        <li>发电系统性能评价等</li>
+      </ul>
+    </section>
 
-      <section class="card">
-        <h2>个人简介</h2>
-        <p>
-          扬子江，男，博士，讲师，硕士生导师。2005年毕业于太原理工大学自动化专业，
-          2012年获北京大学控制理论与控制工程硕士学位，2021年获山东科技大学博士学位。
-          现任职于山东科技大学电气与自动化工程学院。
-        </p>
+    <section class="card">
+      <h2>所获荣誉</h2>
+      <div class="cert-grid">
+        <div class="cert-item">证书图片位 1</div>
+        <div class="cert-item">证书图片位 2</div>
+        <div class="cert-item">证书图片位 3</div>
+        <div class="cert-item">证书图片位 4</div>
+      </div>
+    </section>
 
-        <div class="tags">
-          <span class="tag">工业过程异常监测</span>
-          <span class="tag">发电系统性能评价</span>
-          <span class="tag">控制理论与控制工程</span>
-          <span class="tag">电力工业数据分析</span>
-        </div>
-      </section>
+    <section class="card">
+      <h2>联系方式</h2>
+      <p>电话：15615725891</p>
+      <p>Email：zijiang_yang@sdust.edu.cn</p>
+    </section>
 
-      <section class="card">
-        <h2>研究方向</h2>
-        <ul>
-          <li>工业过程异常监测</li>
-          <li>发电系统性能评价</li>
-        </ul>
-      </section>
+  </div>
 
-      <section class="card">
-        <h2>所获荣誉</h2>
-        <div class="cert-grid">
-          <div class="cert-item">证书图片位 1</div>
-          <div class="cert-item">证书图片位 2</div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>联系方式</h2>
-        <p>电话：15615725891</p>
-        <p>Email：zijiang_yang@sdust.edu.cn</p>
-      </section>
-
-    </div>
-
-    <footer>© 2026 Professor Wang Lab</footer>
-  </main>
+  <footer>© 2026 Professor Wang Lab</footer>
+</main>
 
 </body>
 </html>
