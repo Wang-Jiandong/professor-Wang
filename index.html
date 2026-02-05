@@ -2,219 +2,204 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>智能电网实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>研究团队</title>
 
   <style>
-    :root{
-      --blue:#1f3c88;
-      --deep:#0e2f78;
-      --bg:#f6f7fb;
-      --card:#fff;
-      --line:#e7eefc;
-      --text:#222;
-      --muted:#666;
-      --shadow:0 10px 24px rgba(0,0,0,.08);
-      --radius:14px;
-      --sidebarW:240px; /* ✅ 左侧宽度固定 240px */
+    :root {
+      --blue: #1f3c88;
+      --deep: #0e2f78;
+      --bg: #f6f7fb;
+      --card: #fff;
+      --line: #e7eefc;
+      --text: #222;
+      --muted: #666;
+      --shadow: 0 10px 24px rgba(0, 0, 0, .08);
+      --radius: 14px;
+      --sidebarW: 240px;
     }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
+    * {
+      box-sizing: border-box;
     }
-    a{color:var(--blue);text-decoration:none;}
-    a:hover{text-decoration:underline;}
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-    /* ========== 左侧固定导航（240px）========== */
-    .sidebar{
-      position:fixed;
-      top:0; left:0;
-      width:var(--sidebarW);
-      height:100vh;
-      background:var(--deep);
-      color:#fff;
-      padding:16px 12px;
-      border-right:1px solid rgba(255,255,255,.12);
-      overflow-y:auto;
+    /* 左侧固定导航栏 */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebarW);
+      height: 100vh;
+      background: var(--deep);
+      color: #fff;
+      padding: 16px 12px;
+      border-right: 1px solid rgba(255, 255, 255, .12);
+      overflow-y: auto;
     }
-    .brand{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:10px 8px 14px;
-      border-bottom:1px solid rgba(255,255,255,.18);
-      margin-bottom:14px;
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 8px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+      margin-bottom: 14px;
     }
-    .brand .avatar{
-      width:54px;height:54px;border-radius:10px;
-      background:rgba(255,255,255,.18);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900; letter-spacing:.5px;
+    .brand .avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      letter-spacing: .5px;
     }
-    .brand h1{margin:0;font-size:16px;line-height:1.2;}
-    .brand p{margin:4px 0 0;font-size:12px;opacity:.9;line-height:1.3;}
+    .brand h1 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.2;
+    }
 
-    .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
-    .nav a{
-      display:block;
-      padding:10px 10px;
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:10px;
-      color:#fff;
-      background:rgba(255,255,255,.08);
-      font-weight:800;
-      font-size:13px;
-      text-align:center;
-      transition:background .15s ease, transform .12s ease;
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
     }
-    .nav a:hover{background:rgba(255,255,255,.16);text-decoration:none;transform:translateY(-1px);}
-    .nav a.active{background:#fff;color:var(--deep);border-color:#fff;}
+    .nav a {
+      display: block;
+      padding: 10px 10px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 10px;
+      color: #fff;
+      background: rgba(255, 255, 255, .08);
+      font-weight: 800;
+      font-size: 13px;
+      text-align: center;
+      transition: background .15s ease, transform .12s ease;
+    }
+    .nav a:hover {
+      background: rgba(255, 255, 255, .16);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .nav a.active {
+      background: #fff;
+      color: var(--deep);
+      border-color: #fff;
+    }
 
-    /* ========== 右侧主内容（让出左侧 240px）========== */
-    .main{
-      margin-left:var(--sidebarW);
-      padding:18px 18px 28px;
-      min-height:100vh;
+    /* 右侧内容区域 */
+    .main {
+      margin-left: var(--sidebarW);
+      padding: 18px 18px 28px;
+      min-height: 100vh;
     }
-.hero-desc{
-  color:#fff;
-}
 
     /* 顶部欢迎条 */
-    .hero{
-      max-width:1100px;
-      margin:0 auto 14px;
-      border-radius:var(--radius);
-      background:linear-gradient(135deg,#2b7bd7,#1f3c88);
-      color:#fff;
-      padding:18px 18px;
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto 14px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #2b7bd7, #1f3c88);
+      color: #fff;
+      padding: 18px 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
-    .hero h2{margin:0;font-size:20px;letter-spacing:.3px;}
-    .hero p{margin:8px 0 0;opacity:.95;line-height:1.7;font-size:13px;max-width:920px;}
-    .hero .hint{
-      margin-top:10px;
-      display:inline-block;
-      font-size:12px;
-      opacity:.95;
-      background:rgba(255,255,255,.15);
-      border:1px solid rgba(255,255,255,.25);
-      padding:6px 10px;
-      border-radius:999px;
+    .hero h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: .3px;
     }
-
-    /* 内容区 */
-    .page{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      gap:14px;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:0 6px 16px rgba(0,0,0,.06);
-      padding:18px;
-    }
-    .card h3{
-      margin:0 0 10px 0;
-      font-size:18px;
-      color:var(--blue);
-      border-bottom:2px solid #eee;
-      padding-bottom:8px;
-    }
-    .muted{color:var(--muted);font-size:13px;}
-    p{margin:0 0 10px 0;line-height:1.9;color:#333;font-size:14px;}
-
-    /* 简介 + 概览：左右两列 */
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      :root{ --sidebarW:240px; } /* 仍保持 240，如你要小屏变窄我再给你加 */
-      .grid{grid-template-columns:1fr;}
+    .hero p {
+      margin: 8px 0 0;
+      opacity: .95;
+      line-height: 1.7;
+      font-size: 13px;
+      max-width: 920px;
     }
 
-    /* 研究方向四块 */
-    .tiles{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:10px;
-    }
-    @media (max-width: 860px){
-      .tiles{grid-template-columns:1fr;}
-    }
-    .tile{
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px;
-      background:#fff;
-      transition:transform .12s ease, box-shadow .12s ease;
-    }
-    .tile:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(0,0,0,.08);
-    }
-    .tile .title{margin:0;color:var(--blue);font-weight:900;font-size:15px;}
-    .tile .desc{margin:8px 0 0;color:#444;line-height:1.75;font-size:13px;}
-    .tile .go{display:inline-block;margin-top:10px;font-weight:800;font-size:13px;}
-
-    /* 新闻列表 */
-    .news-list{margin:8px 0 0 0;padding-left:18px;line-height:1.9;color:#333;}
-    .news-list li{margin:10px 0;}
-    .badge{
-      display:inline-block;
-      font-size:12px;
-      padding:2px 8px;
-      border-radius:999px;
-      background:#eef5ff;
-      border:1px solid #d7e8ff;
-      color:var(--blue);
-      margin-right:8px;
-      vertical-align:middle;
+    .hero .hint {
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 12px;
+      opacity: .95;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .25);
+      padding: 6px 10px;
+      border-radius: 999px;
     }
 
-    /* 数据概览 */
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:10px;
+    /* 研究方向 */
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 10px;
     }
-    .stat{
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px;
-      background:#fbfcff;
+    @media (max-width: 860px) {
+      .tiles {
+        grid-template-columns: 1fr;
+      }
     }
-    .stat .k{font-size:12px;color:#667; margin:0;}
-    .stat .v{font-size:20px;color:var(--blue);font-weight:900;margin:6px 0 0 0;}
-    .stat .s{font-size:12px;color:#667;margin:6px 0 0 0;line-height:1.6;}
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .08);
+    }
+    .tile .title {
+      margin: 0;
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 15px;
+    }
+    .tile .desc {
+      margin: 8px 0 0;
+      color: #444;
+      line-height: 1.75;
+      font-size: 13px;
+    }
+    .tile .go {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 800;
+      font-size: 13px;
+    }
 
     /* 页脚 */
-    footer{
-      max-width:1100px;
-      margin:12px auto 0;
-      text-align:center;
-      color:#777;
-      font-size:12px;
+    footer {
+      max-width: 1100px;
+      margin: 12px auto 0;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* 联系方式样式 */
+    .contact-info {
+      font-size: 16px;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 左侧固定导航栏（240px） -->
+  <!-- 左侧固定导航栏 -->
   <aside class="sidebar">
     <div class="brand">
       <div class="avatar">LAB</div>
@@ -224,140 +209,55 @@
     </div>
 
     <nav class="nav">
-      <a class="active" href="index.html">实验室简介</a>
-      <a href="news.html">实验室新闻</a>
-      <a href="people.html">师资队伍</a>
+      <a class="active" href="index.html">实验室主页</a>
       <a href="research.html">研究方向</a>
-      <a href="results.html">研究成果</a>
-      <a href="contact.html">联系方式</a>
+      <a href="contact.html">研究团队</a>
+      <a href="theses.html">论文专著</a>
     </nav>
   </aside>
 
-  <!-- 右侧内容区域（可滚动） -->
+  <!-- 右侧内容区域 -->
   <main class="main">
 
-    <!-- 顶部视觉区 -->
+    <!-- 顶部欢迎条 -->
     <section class="hero">
-      <h2>智能电网实验室 · Laboratory of Intelligent Power Systems</h2>
-<p class="hero-desc">
-  本实验室依托山东科技大学电气与自动化工程学院建设与运行，面向电力与流程工业场景的安全运行与高效优化需求，
-  开展面向工程应用的理论方法研究与技术验证，推动关键技术在实际系统中的落地应用与人才培养。
-</p>
-
-      <span class="hint">Framework Draft · 内容后续可按老师意见再完善</span>
+      <h2>欢迎访问我们的研究团队！</h2>
+      <p>
+        团队主要开展系统建模、异常监控、优化调度的理论研究及其在电力、石化、化工等工业领域的应用研究。更多详细信息敬请浏览“研究方向”部分，欢迎与我们联系，进一步交流！
+      </p>
     </section>
 
-    <div class="page">
-
-      <!-- 简介 + 概览（左右两列） -->
-      <section class="card">
-        <h3>实验室简介</h3>
-
-        <div class="grid">
-          <div>
-            <p>
-              实验室聚焦复杂系统的建模分析、监测诊断与运行优化，围绕工业报警系统、房间供热系统、系统辨识与化工过程等方向开展研究，
-              形成从问题建模、算法设计到工程验证的研究链条。
-            </p>
-            <p>
-              近年来，实验室承担国家级与省部级科研项目及企业合作项目，发表学术论文、申请/授权专利，并在相关工业场景中开展应用示范，
-              服务于安全生产、能效提升与稳定运行。
-            </p>
-            <p class="muted">
-              说明：当前页面为“展示框架版”，数据与措辞可在老师过目后进一步对齐官网/简历/论文列表等材料。
-            </p>
-          </div>
-
-          <div>
-            <div class="stats">
-              <div class="stat">
-                <p class="k">研究方向</p>
-                <p class="v">4</p>
-                <p class="s">报警系统 / 房间供热 / 系统辨识 / 化工过程</p>
-              </div>
-              <div class="stat">
-                <p class="k">模块页面</p>
-                <p class="v">6</p>
-                <p class="s">简介、新闻、团队、方向、成果、联系</p>
-              </div>
-              <div class="stat">
-                <p class="k">展示能力</p>
-                <p class="v">图 / 视频</p>
-                <p class="s">支持子页面跳转、视频播放、图片展示</p>
-              </div>
-              <div class="stat">
-                <p class="k">后续可扩展</p>
-                <p class="v">快速</p>
-                <p class="s">可追加：平台条件、项目列表、招生信息等</p>
-              </div>
-            </div>
-          </div>
+    <!-- 研究方向 -->
+    <section class="card">
+      <div class="tiles">
+        <div class="tile">
+          <p class="title">报警系统</p>
+          <a class="go" href="research.html">进入该方向 →</a>
         </div>
-      </section>
 
-      <!-- 研究方向入口（四块） -->
-      <section class="card">
-        <h3>研究方向概览</h3>
-        <p class="muted">点击进入研究方向页面（后续每个方向可继续细分为独立子页展示视频、图片与代表性成果）。</p>
-
-        <div class="tiles">
-          <div class="tile">
-            <p class="title">报警系统</p>
-            <p class="desc">工业报警系统分析与设计、告警抑制、异常预警与智能监控等。</p>
-            <a class="go" href="research.html">进入该方向 →</a>
-          </div>
-
-          <div class="tile">
-            <p class="title">房间供热</p>
-            <p class="desc">建筑/房间供热系统建模、预测与控制、能效优化与运行评估等。</p>
-            <a class="go" href="research.html">进入该方向 →</a>
-          </div>
-
-          <div class="tile">
-            <p class="title">系统辨识</p>
-            <p class="desc">数据驱动与机理融合建模、参数估计、时变/非线性辨识与在线更新等。</p>
-            <a class="go" href="research.html">进入该方向 →</a>
-          </div>
-
-          <div class="tile">
-            <p class="title">化工过程</p>
-            <p class="desc">化工过程监测、诊断与优化控制，面向安全与效率的工程验证。</p>
-            <a class="go" href="research.html">进入该方向 →</a>
-          </div>
+        <div class="tile">
+          <p class="title">房间供热</p>
+          <a class="go" href="research.html">进入该方向 →</a>
         </div>
-      </section>
 
-      <!-- 新闻摘要（保留） -->
-      <section class="card">
-        <h3>实验室新闻（摘要）</h3>
-        <p class="muted">更多新闻与详情请进入“实验室新闻”页面。</p>
+        <div class="tile">
+          <p class="title">系统辨识</p>
+          <a class="go" href="research.html">进入该方向 →</a>
+        </div>
 
-        <ol class="news-list">
-          <li>
-            <span class="badge">News 01</span>
-            <a href="news.html">伊朗伊斯法罕理工大学 Iman 教授来访我实验室开展为期一个月的学术交流</a>
-          </li>
-          <li>
-            <span class="badge">News 02</span>
-            <a href="news.html">实验室博士生邢晓彤通过博士学位论文答辩并获推荐参评优秀博士学位论文</a>
-          </li>
-        </ol>
-      </section>
+        <div class="tile">
+          <p class="title">化工过程</p>
+          <a class="go" href="research.html">进入该方向 →</a>
+        </div>
+      </div>
+    </section>
 
-      <!-- 快捷入口（保留） -->
-      <section class="card">
-        <h3>快速入口</h3>
-        <p class="muted">用于提升“观感”的入口区，后续可替换为招生/平台/项目/论文等快捷链接。</p>
-        <p>
-          <a href="people.html">→ 师资队伍</a> &nbsp; | &nbsp;
-          <a href="results.html">→ 研究成果</a> &nbsp; | &nbsp;
-          <a href="contact.html">→ 联系方式</a>
-        </p>
-      </section>
-
-    </div>
-
-    <footer>© 2026 Professor Wang Lab | Powered by GitHub Pages</footer>
+    <!-- 联系方式 -->
+    <footer>
+      <p class="contact-info">联系方式：</p>
+      <p>王建东 教授，Email: <a href="mailto:jiandong@sdust.edu.cn">jiandong@sdust.edu.cn</a></p>
+      <p>电话：18600779436</p>
+    </footer>
   </main>
 
 </body>
