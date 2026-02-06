@@ -17,91 +17,66 @@
         <a href="papers.html"><span class="pill"></span>论文专著</a>
         <a href="team.html"><span class="pill"></span>研究团队</a>
       </nav>
+      <div class="footer">© <span id="y"></span> 智能电网 / 系统研究团队</div>
     </aside>
 
     <!-- ===== Main ===== -->
     <main class="main">
       <div class="container">
         <section class="card">
-          <div class="detail-wrap">
-            <div>
-              <h1 class="detail-title">单变量报警器的性能评价与优化设计</h1>
-              <p class="detail-subline">
-                面向工业过程安全监控与运行保障，围绕报警阈值、延迟时间、死区宽度等参数，
-                建立可量化的性能指标体系并进行系统优化。
-              </p>
-            </div>
 
-            <div class="detail-grid">
-              <div class="section-card">
-                <div class="section-head">
-                  <div class="section-badge">1</div>
-                  <h2>研究背景</h2>
-                </div>
-                <p>
-                  在工业生产监控中，单变量报警器（越限报警器、延迟报警器、死区报警器等）
-                  是重要的安全保障。若报警器性能不佳，频繁出现误报与漏报，
-                  则会引发“狼来了”效应，造成生产操作人员不信任报警信息，形成重大安全隐患。
-                </p>
-              </div>
+          <h1 class="detail-title">单变量报警器的性能评价与优化设计</h1>
 
-              <div class="section-card">
-                <div class="section-head">
-                  <div class="section-badge">2</div>
-                  <h2>研究目标</h2>
-                </div>
-                <p>
-                  基于近期历史运行数据，评价报警器的误报率、漏报率等性能指标，
-                  给出报警阈值、延迟时间、死区宽度等参数的最优值，
-                  用于提升报警器性能指标、减少未来的误报警与漏报警。
-                </p>
-              </div>
-
-              <div class="section-card">
-                <div class="section-head">
-                  <div class="section-badge">3</div>
-                  <h2>主要思路</h2>
-                </div>
-                <p>
-                  针对配置报警器的过程变量，通过比较报警阈值与过程变量的相对关系，
-                  识别变量处于正常状态或异常状态，并计算报警率、漏报警率等性能指标；
-                  根据不同运行状况下的观测数据，收集报警持续时间、报警幅值差等关键特征量，
-                  获得最优报警器参数（包括报警阈值、延迟时间、死区宽度等），使性能指标趋近理想值。
-                </p>
-              </div>
-
-              <div class="section-card">
-                <div class="section-head">
-                  <div class="section-badge">4</div>
-                  <h2>应用案例</h2>
-                </div>
-                <p>
-                  以二水箱系统为实验对象，研发报警在线监测、报警性能评价与报警优化设计等功能模块；
-                  通过设置堵塞、泄漏、外部扰动等异常状况，对水箱液位进行持续报警监测，
-                  并对“优化设计前后”不同类型报警器在相同实验条件下的性能指标进行对比，
-                  说明报警器性能评价与优化设计的必要性。
-                </p>
+          <div class="detail-stack">
+            <div class="stack-item">
+              <div class="stack-h">研究背景：</div>
+              <div class="stack-p">
+                在工业生产监控中，单变量报警器（越限报警器、延迟报警器、死区报警器等）是重要的安全保障。
+                如果报警器性能不佳，频繁出现误报与漏报，则会引发“狼来了”效应，造成生产操作人员不信任报警信息，
+                形成重大安全隐患！
               </div>
             </div>
 
-            <div class="media-card">
-              <div class="media-head">
-                <h3>技术细节 / 实验展示</h3>
-                <div class="media-note">（此处可替换为你的图片或视频）</div>
+            <div class="stack-item">
+              <div class="stack-h">研究目标：</div>
+              <div class="stack-p">
+                基于近期历史运行数据，评价报警器的误报率、漏报率等性能指标，给出报警阈值、延迟时间、死区宽度等
+                报警器参数的最优值，用来提高报警器的性能指标，减少未来的误报警与漏报警的发生次数。
               </div>
-
-              <figure class="figure">
-                <!-- ✅ 把 src 换成你仓库里的图片路径，例如 assets/img/tank.jpg -->
-                <img src="assets/shipin_Trim.mp4" alt="实验装置或系统框图示意" />
-                <figcaption>
-                  示例说明：系统结构与实验平台展示（你可以在这里写：模型框图、平台构成、关键模块等）。
-                </figcaption>
-              </figure>
-
-              <p class="backline"><a class="hot" href="research.html">← 返回研究方向</a></p>
             </div>
 
+            <div class="stack-item">
+              <div class="stack-h">主要思路：</div>
+              <div class="stack-p">
+                针对配置报警器的过程变量，通过比较报警阈值与过程变量均值的相对关系，识别该变量处于正常状况或异常状况，
+                计算误报率、漏报率等性能指标；依据不同运行状况下的观测数据，收集报警持续时间、报警幅值差等关键特征量，
+                获得最优报警器参数（包括报警阈值、延迟时间、死区宽度等），使报警器性能指标趋近于理想值。
+              </div>
+            </div>
+
+            <div class="stack-item">
+              <div class="stack-h">应用案例：</div>
+              <div class="stack-p">
+                以二水箱系统为实验对象，研发报警在线监测、报警性能评价、报警优化设计等功能模块。
+                通过设置堵塞、泄漏、外部扰动等异常状况，对水箱液位进行持续报警监测，并对“优化设计前后”
+                不同类型报警器在相同实验条件下的性能指标进行对比，说明报警器性能评价与优化设计的必要性。
+              </div>
+            </div>
           </div>
+
+          <div class="figure-wrap">
+            <img class="figure-img" src="assets/placeholder.jpg" alt="系统框图/实验平台展示" />
+          </div>
+
+          <div class="detail-foot">
+            <span class="stack-h">技术细节：</span>
+            详见
+            <a class="hot" href="papers.html">“论文专著”</a>
+            部分 —— 单变量报警器方向的代表性论文。
+          </div>
+
+          <p class="backline"><a class="hot" href="research.html">← 返回研究方向</a></p>
+
         </section>
       </div>
     </main>
