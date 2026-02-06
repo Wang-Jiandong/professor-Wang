@@ -505,3 +505,128 @@ a.research-card:hover{
   font-weight:650;
   line-height:1.9;
 }
+/* ===== Research-1: prettier vertical detail ===== */
+.detail-title{
+  margin:0 0 10px;
+  font-size:26px;
+  letter-spacing:.2px;
+  color:#111827;
+}
+
+.detail-stack{
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* 每一段做成轻卡片，更精致 */
+.stack-item{
+  padding:14px 14px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid rgba(17,24,39,.10);
+  box-shadow: 0 10px 22px rgba(16,24,40,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+/* 顶部渐变细线点缀 */
+.stack-item::before{
+  content:"";
+  position:absolute;
+  left:0; top:0; right:0;
+  height:3px;
+  background: linear-gradient(90deg, rgba(28,78,165,.75), rgba(229,57,53,.35), transparent);
+}
+
+/* 子标题：深蓝 + 左侧竖线，更突出 */
+.stack-h{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:1000;
+  letter-spacing:.2px;
+  color:#12355f; /* ✅ 子标题颜色（深蓝） */
+  font-size:15.5px;
+  margin-bottom:6px;
+}
+
+.stack-h::before{
+  content:"";
+  width:4px;
+  height:16px;
+  border-radius:999px;
+  background: rgba(28,78,165,.85);
+  box-shadow: 0 0 0 4px rgba(28,78,165,.12);
+}
+
+/* 正文：全黑（你要求的） */
+.stack-p{
+  margin:0;
+  color:#111827;       /* ✅ 全黑 */
+  line-height:1.95;
+  font-size:15.5px;
+  font-weight:650;
+}
+
+/* 视频区 */
+.media-block{
+  margin-top:14px;
+  padding:14px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid rgba(17,24,39,.10);
+  box-shadow: 0 12px 26px rgba(16,24,40,.10);
+}
+
+.media-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.media-head h3{
+  margin:0;
+  font-size:16px;
+  color:#111827;
+  letter-spacing:.2px;
+}
+
+.media-note{
+  color: rgba(75,85,99,.90);
+  font-size:13px;
+  font-weight:650;
+}
+
+.video-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(17,24,39,.10);
+  background: linear-gradient(180deg, rgba(28,78,165,.04), rgba(11,42,91,.02));
+}
+
+.video-wrap video{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* 底部技术细节提示 */
+.detail-foot{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  background: linear-gradient(180deg, rgba(28,78,165,.06), rgba(11,42,91,.03));
+  border:1px solid rgba(17,24,39,.10);
+  color:#111827;  /* ✅ 这里也黑，阅读更利落 */
+  font-weight:650;
+  line-height:1.9;
+}
+
+.backline{
+  margin-top:10px;
+  font-weight:900;
+}
