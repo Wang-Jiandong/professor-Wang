@@ -204,3 +204,39 @@ a.hot:hover::after{ transform:scaleX(1); }
   .page-title{ font-size:24px; }
   .info-box p{ font-size:16px; }
 }
+/* ===== Research page list (red numbered links like the screenshot) ===== */
+.research-list{
+  margin: 12px 0 0;
+  padding-left: 22px;
+  line-height: 1.95;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.research-list li{
+  margin: 8px 0;
+  color: var(--accent);            /* 编号颜色 */
+}
+
+.research-link{
+  color: var(--accent);            /* 文字红色 */
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .2px;
+  position: relative;
+}
+
+.research-link::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-3px;
+  height:2px;
+  background: rgba(229,57,53,.35);
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .15s ease;
+}
+
+.research-link:hover::after{
+  transform: scaleX(1);
+}
