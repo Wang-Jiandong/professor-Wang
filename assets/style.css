@@ -630,3 +630,13 @@ a.research-card:hover{
   margin-top:10px;
   font-weight:900;
 }
+/* 视频显示尺寸控制（推荐） */
+.video-small{
+  max-width: 640px;      /* 👈 控制视频最大宽度，常用 480 / 640 / 720 */
+  margin: 0 auto;        /* 居中 */
+}
+
+.video-small video{
+  width: 100%;
+  height: auto;
+}
