@@ -640,7 +640,7 @@ a.research-card:hover{
   width: 100%;
   height: auto;
 }
-/* 两图同尺寸（同高度展示） */
+/* ===== research-3: two images + captions aligned ===== */
 .fig-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -656,15 +656,15 @@ a.research-card:hover{
   box-shadow: 0 10px 22px rgba(16,24,40,.08);
 }
 
-/* ✅ 关键：固定高度，让两张图视觉上一样大 */
 .fig img{
   width:100%;
-  height: 320px;         /* 你可改 280/300/340 */
-  object-fit: cover;     /* 填满且不变形（会裁掉一点边缘） */
+  height: 320px;      /* 两张图统一高度 => 看起来一样大 */
+  object-fit: contain; /* ✅ 不裁图，保持完整（可能留白，但更学术） */
+  background:#fff;
   display:block;
 }
 
-/* 两个图题同一行并排 */
+/* ✅ 图题：一行两列，与图片严格对齐 */
 .cap-row{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -677,16 +677,17 @@ a.research-card:hover{
   font-weight:900;
   color:#111827;
   line-height:1.6;
+  text-align:left;
   white-space: nowrap;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* 手机端自动变上下排列（避免太挤） */
+/* 手机端变上下排列 */
 @media (max-width: 900px){
   .fig-grid{ grid-template-columns: 1fr; }
   .cap-row{ grid-template-columns: 1fr; }
-  .fig img{ height: auto; object-fit: contain; }
+  .fig img{ height:auto; }
   .cap{ white-space: normal; }
 }
 
