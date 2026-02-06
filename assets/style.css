@@ -282,12 +282,13 @@ a.research-card:hover{
 /* 这里重点：标题文字红色 + visited 也红色（强制覆盖） */
 .research-card .title,
 .research-card:visited .title{
-  color:#e53935 !important;  /* ✅ 强制红色 */
+  color:#111827 !important;  /* ✅ 黑色标题 */
   font-weight:1000;
   font-size:18px;
   line-height:1.55;
   letter-spacing:.2px;
 }
+
 
 /* 小说明 */
 .research-card .desc{
