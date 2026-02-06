@@ -9,24 +9,16 @@
 
 <body>
   <div class="shell">
-    <!-- ===== Sidebar ===== -->
+    <!-- ===== Sidebar（只保留导航按钮） ===== -->
     <aside class="sidebar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>研究团队</h1>
-          <p>系统建模 · 异常监控 · 优化调度</p>
-        </div>
-      </div>
-
       <nav class="nav" aria-label="Site Navigation">
-        <a href="index.html"><span class="dot"></span>团队主页</a>
-        <a href="research.html"><span class="dot"></span>研究方向</a>
-        <a href="papers.html"><span class="dot"></span>论文专著</a>
-        <a href="team.html"><span class="dot"></span>研究团队</a>
+        <a href="index.html"><span class="pill"></span>团队主页</a>
+        <a href="research.html"><span class="pill"></span>研究方向</a>
+        <a href="papers.html"><span class="pill"></span>论文专著</a>
+        <a href="team.html"><span class="pill"></span>研究团队</a>
       </nav>
 
-      <div class="footer">© <span id="y"></span> 智能电网/系统研究团队</div>
+      <div class="footer">© <span id="y"></span> 智能电网 / 系统研究团队</div>
     </aside>
 
     <!-- ===== Main ===== -->
@@ -35,35 +27,48 @@
         <section class="card">
           <h1 class="page-title">欢迎访问我们的研究团队！</h1>
 
-          <p class="lead">
-            团队主要开展系统建模、异常监控、优化调度的理论研究，
-            及其在电力、石化、化工等工业领域的应用研究。
-            更多详细信息敬请浏览 <a class="hot" href="research.html">“研究方向”</a> 部分，
-            欢迎与我们联系、进一步交流！
-          </p>
-
-          <p class="lead">
-            欢迎不同阶段的学生及青年学者，以硕士生、博士生、博士后等身份加入我们的研究团队，
-            一同努力、共同成长！更多详细信息敬请浏览
-            <a class="hot" href="team.html">“研究团队”</a> 部分。
-          </p>
-
-          <div class="section">
-            <h2>联系方式</h2>
-            <div class="contact">
-              <div><b>王建东</b> 教授 / 博导</div>
-              <div>电话：18600779436</div>
-              <div>Email：<a class="hot" href="mailto:jiandong@sdust.edu.cn">jiandong@sdust.edu.cn</a></div>
-              <div>办公室：山东科技大学电气与自动化工程学院 11 楼 110 室</div>
+          <div class="grid">
+            <!-- 信息框 1 -->
+            <div class="info-box">
+              <p>
+                团队主要开展系统建模、异常监控、优化调度的理论研究，
+                及其在电力、石化、化工等工业领域的应用研究。
+                <span class="muted">更多详细信息敬请浏览</span>
+                <a class="hot" href="research.html">“研究方向”</a>
+                <span class="muted">部分，欢迎与我们联系、进一步交流！</span>
+              </p>
             </div>
+
+            <!-- 信息框 2 -->
+            <div class="info-box">
+              <p>
+                欢迎不同阶段的学生及青年学者，以硕士生、博士生、博士后等身份加入我们的研究团队，
+                一同努力、共同成长！
+                <span class="muted">更多详细信息敬请浏览</span>
+                <a class="hot" href="team.html">“研究团队”</a>
+                <span class="muted">部分。</span>
+              </p>
+            </div>
+          </div>
+
+          <h2 class="section-title">联系方式</h2>
+          <div class="contact">
+            <div><b>王建东</b> 教授 / 博导</div>
+            <div>电话：18600779436</div>
+            <div>Email：<a class="hot" href="mailto:jiandong@sdust.edu.cn">jiandong@sdust.edu.cn</a></div>
+            <div>办公室：山东科技大学电气与自动化工程学院 11 楼 110 室</div>
           </div>
         </section>
       </div>
     </main>
   </div>
 
-  <script src="assets/site.js"></script>
   <script>
+    // 高亮当前页面
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav a').forEach(a=>{
+      if(a.getAttribute('href')===path) a.classList.add('active');
+    });
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
