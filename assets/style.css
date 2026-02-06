@@ -640,3 +640,39 @@ a.research-card:hover{
   width: 100%;
   height: auto;
 }
+/* ===== research-3: two-figure layout ===== */
+.fig-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+}
+
+.fig{
+  margin:0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(17,24,39,.10);
+  background:#fff;
+  box-shadow: 0 10px 22px rgba(16,24,40,.08);
+}
+
+.fig img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.fig figcaption{
+  padding:10px 12px;
+  font-size:13.5px;
+  line-height:1.7;
+  font-weight:750;
+  color:#111827;
+  background: linear-gradient(180deg, rgba(28,78,165,.04), rgba(11,42,91,.02));
+  border-top:1px solid rgba(17,24,39,.08);
+}
+
+/* 手机端自动变成上下排列 */
+@media (max-width: 900px){
+  .fig-grid{ grid-template-columns: 1fr; }
+}
