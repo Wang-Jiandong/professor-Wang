@@ -3,213 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>研究方向 | 智能电网实验室</title>
-  <style>
-    :root{
-      --blue:#1f3c88;
-      --blueDeep:#0e2f78;
-      --bg:#f6f7fb;
-      --card:#fff;
-      --line:#e7eefc;
-      --text:#222;
-      --muted:#666;
-      --shadow:0 10px 24px rgba(0,0,0,.08);
-      --radius:14px;
-
-      --sidebarW:240px;
-      --gap:18px;
-    }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    a{color:var(--blue);text-decoration:none;}
-    a:hover{text-decoration:underline;}
-
-    /* ===== 左固定 + 右滚动 ===== */
-    .sidebar{
-      width:var(--sidebarW);
-      background:var(--blueDeep);
-      color:#fff;
-      padding:16px 12px;
-      border-right:1px solid rgba(255,255,255,.12);
-
-      position:fixed;
-      left:0;
-      top:0;
-      height:100vh;
-      overflow-y:auto;
-      z-index:10;
-    }
-
-    .brand{
-      display:flex;gap:10px;align-items:center;
-      padding:10px 8px 14px;
-      border-bottom:1px solid rgba(255,255,255,.18);
-      margin-bottom:14px;
-    }
-    .brand .avatar{
-      width:54px;height:54px;border-radius:10px;
-      background:rgba(255,255,255,.18);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;
-    }
-    .brand h1{margin:0;font-size:16px;}
-
-    .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
-    .nav a{
-      display:block;
-      padding:10px;
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:8px;
-      color:#fff;
-      background:rgba(255,255,255,.08);
-      font-weight:800;
-      font-size:13px;
-      text-align:center;
-    }
-    .nav a:hover{background:rgba(255,255,255,.16);text-decoration:none;}
-    .nav a.active{background:#fff;color:var(--blueDeep);border-color:#fff;}
-
-    .main{
-      margin-left:var(--sidebarW);
-      padding:var(--gap);
-      min-height:100vh;
-    }
-
-    .page{
-      max-width:1100px;
-      margin:0 auto;
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px;
-    }
-    .title{
-      margin:0 0 14px 0;
-      font-size:20px;
-      color:var(--blue);
-      border-bottom:2px solid #eee;
-      padding-bottom:8px;
-    }
-    .intro{line-height:1.9;margin-bottom:12px;}
-    .muted{color:var(--muted);font-size:13px;}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      margin-top:12px;
-    }
-    @media (max-width:900px){
-      .sidebar{position:static;width:auto;height:auto;}
-      .main{margin-left:0;}
-      .grid{grid-template-columns:1fr;}
-    }
-
-    .card{
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:#fff;
-      box-shadow:0 6px 16px rgba(0,0,0,.06);
-      padding:16px;
-      transition:.15s ease;
-    }
-    .card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.1);}
-    .badge{
-      display:inline-block;
-      font-size:12px;
-      padding:3px 9px;
-      border-radius:999px;
-      background:#eef5ff;
-      border:1px solid #d7e8ff;
-      color:var(--blue);
-      margin-bottom:10px;
-    }
-    .card h3{margin:0 0 8px 0;font-size:16px;color:#163a8a;}
-    .card p{margin:0 0 10px 0;line-height:1.75;font-size:14px;}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;}
-    .tag{
-      font-size:12px;
-      padding:4px 10px;
-      border-radius:999px;
-      background:#f4f8ff;
-      border:1px solid #e1ebff;
-      color:#234;
-    }
-    .go{display:inline-block;margin-top:10px;font-weight:900;color:var(--blue);}
-
-    footer{text-align:center;color:#777;font-size:12px;margin-top:12px;}
-  </style>
+  <title>研究团队 | 研究方向</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="avatar">LAB</div>
-      <h1>智能电网实验室</h1>
-    </div>
+  <div class="shell">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <nav class="nav" aria-label="Site Navigation">
+        <a href="index.html"><span class="pill"></span>团队主页</a>
+        <a href="research.html"><span class="pill"></span>研究方向</a>
+        <a href="papers.html"><span class="pill"></span>论文专著</a>
+        <a href="team.html"><span class="pill"></span>研究团队</a>
+      </nav>
 
-    <nav class="nav">
-      <a href="./index.html">实验室简介</a>
-      <a href="./news.html">实验室新闻</a>
-      <a href="./people.html">师资队伍</a>
-      <a class="active" href="./research.html">研究方向</a>
-      <a href="./results.html">研究成果</a>
-      <a href="./contact.html">联系方式</a>
-    </nav>
-  </aside>
+    </aside>
 
-  <main class="main">
-    <section class="page">
-      <h2 class="title">研究方向</h2>
-      <p class="intro">
-        本实验室围绕工程系统的建模分析、监测诊断与运行优化等关键问题开展研究，
-        重点聚焦工业报警系统、房间供热、系统辨识与化工过程四个方向，
-        形成“方法研究—平台验证—工程应用”的完整研究链条。
-      </p>
-      <p class="muted">点击卡片进入方向详情页（支持视频、图片与成果展示）。</p>
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <div class="container">
+        <section class="card">
+          <h1 class="page-title">研究方向主要包括（点击链接查看详细信息）：</h1>
 
-      <div class="grid">
-        <a class="card" href="./research/baojingxitong.html">
-          <span class="badge">Direction 01</span>
-          <h3>报警系统</h3>
-          <p>工业报警系统设计、告警抑制与智能监控方法研究。</p>
-          <div class="tags"><span class="tag">Alarm</span><span class="tag">异常监测</span></div>
-          <span class="go">查看详情 →</span>
-        </a>
-
-        <a class="card" href="./research/fangjiangongre.html">
-          <span class="badge">Direction 02</span>
-          <h3>房间供热</h3>
-          <p>建筑供热系统建模、预测控制与能效优化。</p>
-          <div class="tags"><span class="tag">Heating</span><span class="tag">MPC</span></div>
-          <span class="go">查看详情 →</span>
-        </a>
-
-        <a class="card" href="./research/xitongbianshi.html">
-          <span class="badge">Direction 03</span>
-          <h3>系统辨识</h3>
-          <p>数据驱动与机理融合的系统辨识方法。</p>
-          <div class="tags"><span class="tag">System ID</span><span class="tag">鲁棒估计</span></div>
-          <span class="go">查看详情 →</span>
-        </a>
-
-        <a class="card" href="./research/huagongguocheng.html">
-          <span class="badge">Direction 04</span>
-          <h3>化工过程</h3>
-          <p>流程工业过程监测、优化与安全运行。</p>
-          <div class="tags"><span class="tag">Process</span><span class="tag">CPO</span></div>
-          <span class="go">查看详情 →</span>
-        </a>
+          <!-- 红色编号列表：每条可点击 -->
+          <ol class="research-list">
+            <li>
+              <a class="research-link" href="research-1.html">
+                工业报警器的性能评价与优化设计
+              </a>
+            </li>
+            <li>
+              <a class="research-link" href="research-2.html">
+                工业正常工作区的离心泵运行状况监控
+              </a>
+            </li>
+            <li>
+              <a class="research-link" href="research-3.html">
+                调节阀流量非线性特征估计与补偿
+              </a>
+            </li>
+          </ol>
+        </section>
       </div>
-    </section>
+    </main>
+  </div>
 
-    <footer>© 2026 Professor Wang Lab | Powered by GitHub Pages</footer>
-  </main>
+  <script>
+    // 高亮当前页
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav a').forEach(a=>{
+      if(a.getAttribute('href')===path) a.classList.add('active');
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
