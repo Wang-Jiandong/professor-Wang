@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>研究方向 | 基于正常工作区的离心泵运行状况监控</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div class="shell">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <nav class="nav" aria-label="Site Navigation">
+        <a href="index.html"><span class="pill"></span>团队主页</a>
+        <a href="research.html"><span class="pill"></span>研究方向</a>
+        <a href="papers.html"><span class="pill"></span>论文专著</a>
+        <a href="team.html"><span class="pill"></span>研究团队</a>
+      </nav>
+      <div class="footer">© <span id="y"></span> 智能电网 / 系统研究团队</div>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <div class="container">
+        <section class="card">
+
+          <h1 class="detail-title">基于正常工作区的离心泵运行状况监控</h1>
+
+          <div class="detail-stack">
+
+            <div class="stack-item">
+              <div class="stack-h">研究背景</div>
+              <p class="stack-p">
+                离心泵在石化、化工、电力等流程工业中应用广泛。实际运行中，即便设备处于“正常工作区”，
+                也可能出现早期退化、轻微异常与工况扰动等问题。若不能及时识别与预警，异常可能进一步累积，
+                引发效率下降、能耗升高甚至安全风险。因此，面向正常工作区的精细化监测与评估具有重要意义。
+              </p>
+            </div>
+
+            <div class="stack-item">
+              <div class="stack-h">研究目标</div>
+              <p class="stack-p">
+                基于泵的历史运行数据与实时监测信号，建立正常工作区运行状态评估方法，
+                识别轻微异常与早期退化趋势，实现对离心泵运行状况的在线监控、趋势分析与预警提示，
+                为运维决策与优化运行提供依据。
+              </p>
+            </div>
+
+            <div class="stack-item">
+              <div class="stack-h">主要思路</div>
+              <p class="stack-p">
+                以正常工况数据为基础构建“健康基准”，提取关键特征（如压力/流量/振动/功率等）并进行归一化与去工况影响处理；
+                通过统计建模或数据驱动方法刻画正常工作区的状态边界；
+                在此基础上对实时数据进行偏差度量、趋势跟踪与异常评分，区分工况波动与异常变化，
+                实现早期异常识别与性能退化评估。
+              </p>
+            </div>
+
+            <div class="stack-item">
+              <div class="stack-h">应用案例</div>
+              <p class="stack-p">
+                在实验平台或实际泵系统中开展验证：采集正常工作区多工况数据，构建状态评价与异常监测模型；
+                通过引入轻微故障、阀门扰动或工况偏移等情形，验证方法对“早期变化”的敏感性与鲁棒性；
+                以可视化方式展示运行轨迹、异常评分与预警结果，证明在正常工作区开展精细化监控的有效性。
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ===== Media ===== -->
+          <div class="media-block">
+            <div class="media-head">
+              <h3>技术细节 / 实验展示</h3>
+              <div class="media-note"></div>
+            </div>
+
+            <div class="video-wrap video-small">
+              <video controls preload="metadata" style="width:60%; display:block; margin:0 auto;">
+                <source src="assets/媒体2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="detail-foot">
+            <span class="stack-h" style="margin:0; font-size:14px;">论文专著</span>
+            ：详见 <a class="hot" href="papers.html">“论文专著”</a> 部分 —— 离心泵运行状况监控方向的代表性论文。
+          </div>
+
+          <p class="backline"><a class="hot" href="research.html">← 返回研究方向</a></p>
+
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav a').forEach(a=>{
+      if(a.getAttribute('href')===path) a.classList.add('active');
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
