@@ -1,0 +1,215 @@
+:root{
+  --blue-900:#0b2a5b;
+  --blue-800:#113a7a;
+  --blue-700:#1c4ea5;
+  --blue-100:#eaf1ff;
+
+  --bg:#f6f8fc;
+  --card:#ffffff;
+  --text:#1a1f2b;
+  --muted:#5a6272;
+  --line:rgba(18, 46, 92, .12);
+
+  --accent:#e53935;         /* 红色链接 */
+  --shadow:0 14px 36px rgba(16, 24, 40, .10);
+  --shadow2:0 10px 22px rgba(16, 24, 40, .10);
+
+  --radius:16px;
+  --sidebarW:260px;
+  --maxW:1100px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", Arial, "Noto Sans CJK SC", sans-serif;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background:
+    radial-gradient(900px 380px at 20% 0%, rgba(28,78,165,.18), transparent 55%),
+    radial-gradient(800px 420px at 95% 20%, rgba(17,58,122,.14), transparent 60%),
+    var(--bg);
+}
+
+/* ====== Layout ====== */
+.shell{
+  min-height:100vh;
+  display:flex;
+}
+
+.sidebar{
+  width:var(--sidebarW);
+  background: linear-gradient(180deg, var(--blue-700), var(--blue-900));
+  padding:26px 18px;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow:auto;
+  border-right:1px solid rgba(255,255,255,.14);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+  padding:10px 10px 14px;
+  border-bottom:1px solid rgba(255,255,255,.16);
+}
+
+.logo{
+  width:38px; height:38px;
+  border-radius:12px;
+  background: rgba(255,255,255,.22);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+}
+.brand h1{
+  font-size:16px;
+  margin:0;
+  color:#fff;
+  letter-spacing:.5px;
+}
+.brand p{
+  margin:2px 0 0;
+  font-size:12px;
+  color:rgba(255,255,255,.75);
+}
+
+/* ====== Nav ====== */
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:14px;
+}
+.nav a{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  padding:14px 14px;
+  border-radius:14px;
+  text-decoration:none;
+  color:rgba(255,255,255,.92);
+  background: rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 18px rgba(0,0,0,.08);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  font-weight:600;
+  letter-spacing:.2px;
+}
+.nav a:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.26);
+}
+.nav a.active{
+  background: rgba(255,255,255,.24);
+  border-color: rgba(255,255,255,.38);
+  box-shadow: 0 16px 26px rgba(0,0,0,.14);
+}
+.nav .dot{
+  width:10px; height:10px;
+  border-radius:50%;
+  background: rgba(255,255,255,.85);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.14);
+}
+
+/* ====== Main ====== */
+.main{
+  flex:1;
+  padding:34px 26px;
+}
+.container{
+  max-width:var(--maxW);
+  margin:0 auto;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px 30px;
+}
+
+.page-title{
+  margin:0 0 14px;
+  font-size:26px;
+  letter-spacing:.2px;
+}
+.lead{
+  margin:0 0 18px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:15.5px;
+}
+.section{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px dashed rgba(18,46,92,.18);
+}
+.section h2{
+  margin:0 0 10px;
+  font-size:18px;
+}
+ul.clean{
+  margin:10px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+a.hot{
+  color:var(--accent);
+  font-weight:800;
+  text-decoration:none;
+  position:relative;
+}
+a.hot::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-2px;
+  height:2px;
+  background: rgba(229,57,53,.35);
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .15s ease;
+}
+a.hot:hover::after{ transform:scaleX(1); }
+
+/* Contact block */
+.contact{
+  margin-top:16px;
+  padding:16px 18px;
+  border-radius:14px;
+  background: linear-gradient(180deg, rgba(28,78,165,.06), rgba(11,42,91,.03));
+  border:1px solid rgba(18,46,92,.12);
+}
+.contact b{ color:var(--text); }
+.contact div{ color:var(--muted); line-height:1.85; }
+
+/* Footer */
+.footer{
+  margin-top:14px;
+  color:rgba(90,98,114,.8);
+  font-size:12.5px;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 900px){
+  .shell{ flex-direction:column; }
+  .sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  .nav{ flex-direction:row; flex-wrap:wrap; }
+  .nav a{ flex:1 1 45%; justify-content:center; }
+  .main{ padding:18px 14px; }
+  .card{ padding:20px 18px; }
+}
