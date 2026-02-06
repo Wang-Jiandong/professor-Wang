@@ -204,39 +204,111 @@ a.hot:hover::after{ transform:scaleX(1); }
   .page-title{ font-size:24px; }
   .info-box p{ font-size:16px; }
 }
-/* ===== Research page list (red numbered links like the screenshot) ===== */
-.research-list{
-  margin: 12px 0 0;
-  padding-left: 22px;
-  line-height: 1.95;
-  font-size: 18px;
-  font-weight: 800;
+/* ===================== Research Page (beautiful cards) ===================== */
+
+/* 顶部标题旁边的小徽章 */
+.research-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+.badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(28,78,165,.08);
+  border:1px solid rgba(28,78,165,.18);
+  color:#12355f;
+  font-weight:900;
+  font-size:13px;
 }
 
-.research-list li{
-  margin: 8px 0;
-  color: var(--accent);            /* 编号颜色 */
+/* 研究方向列表：用卡片网格 */
+.research-grid{
+  margin-top:10px;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:14px;
 }
 
-.research-link{
-  color: var(--accent);            /* 文字红色 */
-  text-decoration: none;
-  font-weight: 900;
-  letter-spacing: .2px;
-  position: relative;
+/* 每个方向：整块可点 */
+a.research-card,
+a.research-card:visited{
+  display:block;
+  text-decoration:none;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid rgba(17,24,39,.10);
+  box-shadow: 0 12px 26px rgba(16,24,40,.10);
+  padding:16px 18px;
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
 }
 
-.research-link::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-3px;
-  height:2px;
-  background: rgba(229,57,53,.35);
-  transform: scaleX(0);
-  transform-origin:left;
-  transition: transform .15s ease;
+/* hover 精致一点 */
+a.research-card:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(16,24,40,.14);
+  border-color: rgba(28,78,165,.30);
 }
 
-.research-link:hover::after{
-  transform: scaleX(1);
+/* 卡片顶部：红色编号+标题（强制红色，不会被覆盖） */
+.research-card .top{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+.research-card .no{
+  flex:0 0 auto;
+  width:34px; height:34px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:1000;
+  background: rgba(229,57,53,.10);
+  border:1px solid rgba(229,57,53,.22);
+  color:#e53935; /* 红 */
+}
+
+/* 这里重点：标题文字红色 + visited 也红色（强制覆盖） */
+.research-card .title,
+.research-card:visited .title{
+  color:#e53935 !important;  /* ✅ 强制红色 */
+  font-weight:1000;
+  font-size:18px;
+  line-height:1.55;
+  letter-spacing:.2px;
+}
+
+/* 小说明 */
+.research-card .desc{
+  margin:8px 0 0;
+  color: rgba(75,85,99,.95);
+  font-size:14.5px;
+  line-height:1.8;
+  font-weight:650;
+}
+
+/* 右侧小箭头点缀 */
+.research-card .arrow{
+  margin-left:auto;
+  color: rgba(28,78,165,.85);
+  font-weight:1000;
+  transform: translateY(2px);
+}
+
+/* 分隔线点缀（在 card 内） */
+.research-card .line{
+  margin-top:12px;
+  height:1px;
+  background: linear-gradient(90deg, rgba(229,57,53,.22), rgba(28,78,165,.12), transparent);
 }
