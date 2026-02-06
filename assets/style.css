@@ -454,3 +454,54 @@ a.research-card:hover{
   }
   .section-card p{ font-size:15px; }
 }
+/* ===== Research-Detail vertical layout ===== */
+.detail-stack{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.stack-item{
+  padding:10px 0;
+  border-bottom:1px dashed rgba(17,24,39,.12);
+}
+
+.stack-h{
+  font-weight:1000;
+  color:#111827;
+  letter-spacing:.2px;
+}
+
+.stack-p{
+  margin-top:6px;
+  color: rgba(55,65,81,.95);
+  line-height:1.95;
+  font-size:15.5px;
+  font-weight:650;
+}
+
+.figure-wrap{
+  margin-top:16px;
+  display:flex;
+  justify-content:center;
+}
+
+.figure-img{
+  width:min(520px, 78%);
+  border-radius:14px;
+  border:1px solid rgba(17,24,39,.10);
+  box-shadow: 0 12px 26px rgba(16,24,40,.10);
+  background:#fff;
+}
+
+.detail-foot{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  background: linear-gradient(180deg, rgba(28,78,165,.06), rgba(11,42,91,.03));
+  border:1px solid rgba(17,24,39,.10);
+  color: rgba(55,65,81,.95);
+  font-weight:650;
+  line-height:1.9;
+}
