@@ -32,6 +32,7 @@ body{
     radial-gradient(1000px 420px at 18% 0%, rgba(28,78,165,.14), transparent 58%),
     radial-gradient(900px 520px at 95% 15%, rgba(17,58,122,.10), transparent 62%),
     var(--bg);
+    background-attachment: fixed;
 }
 
 /* ====== Layout ====== */
