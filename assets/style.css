@@ -758,4 +758,95 @@ a.research-card:hover{
 /* 链接：依旧黑字，但 hover 统一深蓝 */
 .papers-plain a.pdf{ color:#111827 !important; }
 .papers-plain a.pdf:hover{ color:#0b2a5b !important; }
+/* ====== V2：舒服、有亮点、更精致（用于 research-detail 的 stack-item） ====== */
+
+/* 卡片整体更“通透”一点 */
+.stack-item{
+  padding:16px 16px !important;
+  border-radius:18px !important;
+  background: rgba(255,255,255,.92) !important;
+  border:1px solid rgba(17,24,39,.10) !important;
+  box-shadow: 0 14px 30px rgba(16,24,40,.10) !important;
+  position:relative !important;
+  overflow:hidden !important;
+  backdrop-filter: blur(6px);
+}
+
+/* 顶部渐变细线：更细、更柔和（不会像彩虹） */
+.stack-item::before{
+  content:"" !important;
+  position:absolute !important;
+  left:12px !important;
+  right:12px !important;
+  top:10px !important;
+  height:4px !important;
+  border-radius:999px !important;
+  background: linear-gradient(90deg,
+    rgba(28,78,165,.75),
+    rgba(99,102,241,.45),
+    rgba(236,72,153,.26),
+    rgba(245,158,11,.22)
+  ) !important;
+  filter: saturate(1.05);
+}
+
+/* 左侧彩色胶囊：让每块更“有设计感” */
+.stack-item::after{
+  content:"" !important;
+  position:absolute !important;
+  left:12px !important;
+  top:22px !important;
+  width:6px !important;
+  height:22px !important;
+  border-radius:999px !important;
+  background: linear-gradient(180deg, rgba(28,78,165,.85), rgba(99,102,241,.55)) !important;
+  box-shadow: 0 0 0 5px rgba(28,78,165,.10) !important;
+  opacity:.95;
+}
+
+/* 子标题：更精致（深蓝 + 微渐变字色） */
+.stack-h{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  font-weight:1000 !important;
+  letter-spacing:.2px !important;
+  font-size:15.8px !important;
+  margin:0 0 8px !important;
+
+  /* 让标题“有点亮”但不花 */
+  background: linear-gradient(90deg, #0b2a5b, rgba(28,78,165,.95), rgba(99,102,241,.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* 去掉你之前 stack-h::before 的那条竖线（现在用 ::after 胶囊更高级） */
+.stack-h::before{
+  content:none !important;
+}
+
+/* 正文：更舒服的黑（不是纯黑） */
+.stack-p{
+  margin:0 !important;
+  color: rgba(17,24,39,.92) !important;
+  line-height:1.95 !important;
+  font-size:15.6px !important;
+  font-weight:650 !important;
+}
+
+/* 卡片内部加一层非常淡的“光晕”，提升质感 */
+.stack-item{
+  background:
+    radial-gradient(900px 160px at 20% 0%, rgba(99,102,241,.08), transparent 58%),
+    radial-gradient(700px 180px at 85% 20%, rgba(236,72,153,.06), transparent 60%),
+    rgba(255,255,255,.92) !important;
+}
+
+/* 大标题略微更有层次 */
+.detail-title{
+  color:#0b2a5b !important;
+  font-weight:1000 !important;
+  letter-spacing:.2px !important;
+}
 
