@@ -257,6 +257,14 @@ a.rg-only{
   color: var(--accent);   /* #e53935 */
   font-weight:1000;
 }
+/* ===== FIX: 代表性专著这一块顶边渐变与其它一致 ===== */
+.paper-box::before{
+  background: linear-gradient(90deg,
+    rgba(28,78,165,.70),
+    rgba(229,57,53,.45),
+    transparent
+  ) !important;
+}
 
   </style>
 </body>
