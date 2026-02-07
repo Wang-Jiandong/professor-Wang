@@ -33,11 +33,7 @@
             <!-- 提示框（只保留截图这句话，不加别的） -->
             <div class="stack-item paper-card paper-tip">
               <p class="stack-p" style="margin:0;">
-                请访问
-                <a class="hot rg-black" href="https://www.researchgate.net/profile/Jiandong-Wang-14" target="_blank" rel="noopener">
-                  ResearchGate的英文网站
-                </a>
-                ，有较为全面的论文专著信息。
+请访问 <a class="rg-only" href="https://www.researchgate.net/profile/Jiandong-Wang-14" target="_blank">ResearchGate</a> 的英文网站，有较为全面的论文专著信息。
               </p>
             </div>
 
@@ -47,17 +43,15 @@
               <p class="stack-p">
                 [1]
                 <a class="hot" href="https://weread.qq.com/web/bookDetail/78c32b20727ecf7478c7e04" target="_blank" rel="noopener">
-                  王建东（著）. 智能工业报警系统
-                </a>
-                ，北京：机械工业出版社，ISBN 978-7-111-67677-5, 42.4万字，2021.4.
+                  王建东（著）. 智能工业报警系统，北京：机械工业出版社，ISBN 978-7-111-67677-5, 42.4万字，2021.4.
+                  </a>
               </p>
 
               <p class="stack-p" style="margin-top:10px;">
                 [2]
                 <a class="hot" href="https://link.springer.com/book/10.1007/978-981-97-6516-4" target="_blank" rel="noopener">
-                  Jiandong Wang*, Wenkai Hu, Tongwen Chen. Intelligent Industrial Alarm Systems
+                  Jiandong Wang*, Wenkai Hu, Tongwen Chen. Intelligent Industrial Alarm Systems. Springer, November 2024.
                 </a>
-                . Springer, November 2024.
               </p>
             </div>
 
@@ -239,6 +233,29 @@ a.rg-black{
 a.rg-black:hover{
   color:#0b2a5b !important;
   text-decoration-color: rgba(11,42,91,.55);
+}
+/* ===== Papers page fine underline controls ===== */
+
+/* 只给 ResearchGate 这个词加下划线（黑色不变） */
+a.rg-only{
+  color:#111827 !important;
+  font-weight:900;
+  text-decoration: underline;
+  text-decoration-color: rgba(17,24,39,.45);
+  text-underline-offset: 3px;
+}
+
+/* 专著条目里：尾巴下划线（你指定的出版信息/时间） */
+.u-tail{
+  text-decoration: underline;
+  text-decoration-color: rgba(17,24,39,.45);
+  text-underline-offset: 3px;
+}
+
+/* [1][2] 编号改为“点缀红”（推荐，不刺眼） */
+.paper-no{
+  color: var(--accent);   /* #e53935 */
+  font-weight:1000;
 }
 
   </style>
