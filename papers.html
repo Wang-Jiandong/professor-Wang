@@ -22,55 +22,123 @@
     <!-- ===== Main ===== -->
     <main class="main">
       <div class="container">
-        <section class="card papers-plain">
+        <section class="card">
 
-          <!-- 提示框：请访问 ResearchGate -->
-          <div class="pbox pbox-tip">
-            <p class="p-line" style="margin:0;">
-              请访问<a class="rg" href="https://www.researchgate.net/profile/Jiandong-Wang-14" target="_blank" rel="noopener">ResearchGate的英文网站</a>，有较为全面的论文专著信息。
-            </p>
-          </div>
+          <!-- 页面标题（research-1/2/3 同款） -->
+          <h1 class="detail-title">论文专著</h1>
 
-          <!-- 专著框 -->
-          <div class="pbox pbox-book">
-            <p class="p-h h-book">代表性专著：</p>
-            <p class="p-item">
-              [1]
-              <a class="pdf" href="https://weread.qq.com/web/bookDetail/78c32b20727ecf7478c7e04" target="_blank" rel="noopener">
-                王建东（著）. 智能工业报警系统
-              </a>，北京：机械工业出版社，ISBN 978-7-111-67677-5, 42.4万字，2021.4.
-            </p>
-            <p class="p-item">
-              [2]
-              <a class="pdf" href="https://link.springer.com/book/10.1007/978-981-97-6516-4" target="_blank" rel="noopener">
-                Jiandong Wang*, Wenkai Hu, Tongwen Chen. Intelligent Industrial Alarm Systems.
-              </a>
-              Springer, November 2024.
-            </p>
-          </div>
+          <!-- 竖排卡片（research-1/2/3 同款 stack-item） -->
+          <div class="detail-stack papers-stack">
 
-          <!-- 单变量方向框 -->
-          <div class="pbox pbox-dir pbox-dir-1">
-            <p class="p-h h-dir h-dir-1">单变量报警器方向的代表性论文：</p>
-            <p class="p-item">[1] <a class="pdf" href="assets/1.1.pdf" target="_blank" rel="noopener">J. Wang*, S. Sun, Z. Wang, X. Zhou, P. Gyasi. Alarm deadband design based on maximum amplitude deviations and Bayesian estimation. IEEE Transactions on Control Systems Technology, 31:1941-1948, 2023.</a></p>
-            <p class="p-item">[2] <a class="pdf" href="assets/1.2.pdf" target="_blank" rel="noopener">J. Wang*, Z. Wang, X. Zhou, &amp; F. Yang. Design of delay timers based on estimated probability mass functions of alarm durations. Journal of Process Control, 110:154-165, 2022.</a></p>
-            <p class="p-item">[3] <a class="pdf" href="assets/1.3.pdf" target="_blank" rel="noopener">J. Xu, J. Wang*, I. Izadi, T. Chen. Performance assessment and design for univariate alarm systems based on FAR, MAR and AAD. IEEE Transactions on Automation Science and Engineering, 9:296-307, 2012.</a></p>
-          </div>
+            <!-- 提示框（只保留截图这句话，不加别的） -->
+            <div class="stack-item paper-card paper-tip">
+              <p class="stack-p" style="margin:0;">
+                请访问
+                <a class="hot rg-black" href="https://www.researchgate.net/profile/Jiandong-Wang-14" target="_blank" rel="noopener">
+                  ResearchGate的英文网站
+                </a>
+                ，有较为全面的论文专著信息。
+              </p>
+            </div>
 
-          <!-- 多变量方向框 -->
-          <div class="pbox pbox-dir pbox-dir-2">
-            <p class="p-h h-dir h-dir-2">多变量报警器方向的代表性论文：</p>
-            <p class="p-item">[1] <a class="pdf" href="assets/2.1.pdf" target="_blank" rel="noopener">M. Wei, J. Wang*, Z. Zhang. A normal operating zone model for condition monitoring of reaction-separation-recycle processes. Chemical Engineering Science, 315:121863, 2025.</a></p>
-            <p class="p-item">[2] <a class="pdf" href="assets/2.2.pdf" target="_blank" rel="noopener">M. Wei, J. Wang*, S. Gao, J. Li, X. Pang. An operating zone model for safety and efficiency monitoring of power generation units in thermal power plants. Control Engineering Practice, 153:106101, 2024.</a></p>
-            <p class="p-item">[3] <a class="pdf" href="assets/2.3.pdf" target="_blank" rel="noopener">Y. Yu, J. Wang*, &amp; Z. Ouyang. Designing dynamic alarm limits and adjusting manipulated variables for multivariate systems. IEEE Transactions on Industrial Electronics, 67:2314-2325, 2020.</a></p>
-          </div>
+            <!-- 代表性专著 -->
+            <div class="stack-item paper-card paper-book">
+              <div class="stack-h">代表性专著:</div>
+              <p class="stack-p">
+                [1]
+                <a class="hot" href="https://weread.qq.com/web/bookDetail/78c32b20727ecf7478c7e04" target="_blank" rel="noopener">
+                  王建东（著）. 智能工业报警系统
+                </a>
+                ，北京：机械工业出版社，ISBN 978-7-111-67677-5, 42.4万字，2021.4.
+              </p>
 
-          <!-- 调节阀方向框 -->
-          <div class="pbox pbox-dir pbox-dir-3">
-            <p class="p-h h-dir h-dir-3">调节阀建模方向的代表性论文：</p>
-            <p class="p-item">[1] <a class="pdf" href="assets/3.1.pdf" target="_blank" rel="noopener">X. Xing, J. Wang*, P. Wei, S. Gao, X. Pang. Identification for nonlinear flow characteristics of main steam regulating valves in power plants by mining special data segments. IEEE Transactions on Industrial Informatics, 20:7915-7925, 2024.</a></p>
-            <p class="p-item">[2] <a class="pdf" href="assets/3.2.pdf" target="_blank" rel="noopener">L. Fang, J. Wang*. Identification of Hammerstein systems using Preisach model for sticky control valves. Industrial &amp; Engineering Chemistry Research, 54:1028-1040, 2015.</a></p>
-            <p class="p-item">[3] <a class="pdf" href="assets/3.3.pdf" target="_blank" rel="noopener">J. Wang*, Q. Zhang. Detection of asymmetric control valve stiction from oscillatory data using an extended Hammerstein system identification method. Journal of Process Control, 24:1-12, 2014.</a></p>
+              <p class="stack-p" style="margin-top:10px;">
+                [2]
+                <a class="hot" href="https://link.springer.com/book/10.1007/978-981-97-6516-4" target="_blank" rel="noopener">
+                  Jiandong Wang*, Wenkai Hu, Tongwen Chen. Intelligent Industrial Alarm Systems
+                </a>
+                . Springer, November 2024.
+              </p>
+            </div>
+
+            <!-- 单变量报警器方向 -->
+            <div class="stack-item paper-card paper-dir1">
+              <div class="stack-h">单变量报警器方向的代表性论文:</div>
+
+              <p class="stack-p">
+                [1]
+                <a class="pdf-link" href="assets/1.1.pdf" target="_blank" rel="noopener">
+                  J. Wang*, S. Sun, Z. Wang, X. Zhou, P. Gyasi. Alarm deadband design based on maximum amplitude deviations and Bayesian estimation. IEEE Transactions on Control Systems Technology, 31:1941-1948, 2023.
+                </a>
+              </p>
+
+              <p class="stack-p" style="margin-top:10px;">
+                [2]
+                <a class="pdf-link" href="assets/1.2.pdf" target="_blank" rel="noopener">
+                  J. Wang*, Z. Wang, X. Zhou, & F. Yang. Design of delay timers based on estimated probability mass functions of alarm durations. Journal of Process Control, 110:154-165, 2022.
+                </a>
+              </p>
+
+              <p class="stack-p" style="margin-top:10px;">
+                [3]
+                <a class="pdf-link" href="assets/1.3.pdf" target="_blank" rel="noopener">
+                  J. Xu, J. Wang*, I. Izadi, T. Chen. Performance assessment and design for univariate alarm systems based on FAR, MAR and AAD. IEEE Transactions on Automation Science and Engineering, 9:296-307, 2012.
+                </a>
+              </p>
+            </div>
+
+            <!-- 多变量报警器方向 -->
+            <div class="stack-item paper-card paper-dir2">
+              <div class="stack-h">多变量报警器方向的代表性论文:</div>
+
+              <p class="stack-p">
+                [1]
+                <a class="pdf-link" href="assets/2.1.pdf" target="_blank" rel="noopener">
+                  M. Wei, J. Wang*, Z. Zhang. A normal operating zone model for condition monitoring of reaction-separation-recycle processes. Chemical Engineering Science, 315:121863, 2025.
+                </a>
+              </p>
+
+              <p class="stack-p" style="margin-top:10px;">
+                [2]
+                <a class="pdf-link" href="assets/2.2.pdf" target="_blank" rel="noopener">
+                  M. Wei, J. Wang*, S. Gao, J. Li, X. Pang. An operating zone model for safety and efficiency monitoring of power generation units in thermal power plants. Control Engineering Practice, 153:106101, 2024.
+                </a>
+              </p>
+
+              <p class="stack-p" style="margin-top:10px;">
+                [3]
+                <a class="pdf-link" href="assets/2.3.pdf" target="_blank" rel="noopener">
+                  Y. Yu, J. Wang*, & Z. Ouyang. Designing dynamic alarm limits and adjusting manipulated variables for multivariate systems. IEEE Transactions on Industrial Electronics, 67:2314-2325, 2020.
+                </a>
+              </p>
+            </div>
+
+            <!-- 调节阀建模方向 -->
+            <div class="stack-item paper-card paper-dir3">
+              <div class="stack-h">调节阀建模方向的代表性论文:</div>
+
+              <p class="stack-p">
+                [1]
+                <a class="pdf-link" href="assets/3.1.pdf" target="_blank" rel="noopener">
+                  X. Xing, J. Wang*, P. Wei, S. Gao, X. Pang. Identification for nonlinear flow characteristics of main steam regulating valves in power plants by mining special data segments. IEEE Transactions on Industrial Informatics, 20:7915-7925, 2024.
+                </a>
+              </p>
+
+              <p class="stack-p" style="margin-top:10px;">
+                [2]
+                <a class="pdf-link" href="assets/3.2.pdf" target="_blank" rel="noopener">
+                  L. Fang, J. Wang*. Identification of Hammerstein systems using Preisach model for sticky control valves. Industrial & Engineering Chemistry Research, 54:1028-1040, 2015.
+                </a>
+              </p>
+
+              <p class="stack-p" style="margin-top:10px;">
+                [3]
+                <a class="pdf-link" href="assets/3.3.pdf" target="_blank" rel="noopener">
+                  J. Wang*, Q. Zhang. Detection of asymmetric control valve stiction from oscillatory data using an extended Hammerstein system identification method. Journal of Process Control, 24:1-12, 2014.
+                </a>
+              </p>
+            </div>
+
           </div>
 
         </section>
@@ -86,69 +154,66 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 
-  <!-- 仅用于：小框 + 高亮（不新增任何文字） -->
+  <!-- 仅对 papers 页面做很小的覆盖：让它完全贴合 research-1/2/3 的质感 -->
   <style>
-    .papers-plain{ padding:26px 30px; }
+    /* ResearchGate 链接：你要求“黑颜色就行” */
+    .rg-black{ color:#111827 !important; font-weight:900; }
+    .rg-black::after{ display:none !important; } /* 不要红色下划动画 */
 
-    /* 基础排版：保持“截图文字”一致 */
-    .p-line{ font-size:15.5px; line-height:1.9; font-weight:650; color:#111827; }
-    .p-h{ margin:0 0 8px; font-size:15.8px; font-weight:1000; letter-spacing:.2px; }
-    .p-item{ margin:6px 0; font-size:14.8px; line-height:1.85; font-weight:650; color:#111827; }
-
-    /* 链接：ResearchGate 黑色；论文条目黑色可点 */
-    .papers-plain a{ text-decoration: underline; text-underline-offset: 2px; }
-    .papers-plain a.rg{ color:#111827; font-weight:900; }      /* ✅ 黑色 */
-    .papers-plain a.pdf{ color:#111827; }
-    .papers-plain a.pdf:hover{ color:#0b2a5b; }
-
-    /* 小框：统一高级感（圆角+阴影+细线） */
-    .pbox{
-      border-radius:18px;
-      border:1px solid rgba(17,24,39,.10);
-      background:#fff;
-      box-shadow: 0 12px 26px rgba(16,24,40,.10);
-      padding:14px 16px;
-      position:relative;
-      overflow:hidden;
-      margin:12px 0;
+    /* PDF 链接：保持正文黑，hover 再微微变蓝（更学术） */
+    a.pdf-link{
+      color:#111827;
+      font-weight:650;
+      text-decoration: underline;
+      text-decoration-color: rgba(17,24,39,.22);
+      text-underline-offset: 3px;
     }
-    /* 顶部渐变细线点缀 */
-    .pbox::before{
-      content:"";
-      position:absolute;
-      left:0; top:0; right:0;
-      height:3px;
-      background: linear-gradient(90deg, rgba(28,78,165,.75), rgba(229,57,53,.35), transparent);
+    a.pdf-link:hover{
+      color:#0b2a5b;
+      text-decoration-color: rgba(11,42,91,.35);
     }
 
-    /* 提示框：淡蓝背景更柔和 */
-    .pbox-tip{
-      background: linear-gradient(180deg, rgba(28,78,165,.06), rgba(11,42,91,.03));
+    /* 让 papers 的 stack 稍微更紧凑一点 */
+    .papers-stack{ gap:14px; }
+
+    /* 每块顶部细线：延续你 research-1/2/3 的“蓝+红柔和渐变” */
+    .paper-card::before{
+      background: linear-gradient(90deg,
+        rgba(28,78,165,.75),
+        rgba(229,57,53,.28),
+        transparent
+      ) !important;
     }
 
-    /* 专著框：淡橙/金色调 */
-    .pbox-book::before{
-      background: linear-gradient(90deg, rgba(245,158,11,.80), rgba(229,57,53,.25), transparent);
+    /* 方向块轻微区分：只改“左侧胶囊色”，不改整体风格 */
+    .paper-dir1::after{
+      background: linear-gradient(180deg, rgba(28,78,165,.90), rgba(28,78,165,.55)) !important;
+      box-shadow: 0 0 0 5px rgba(28,78,165,.12) !important;
     }
-    .h-book{
-      color:#92400e;
-      font-family: "Times New Roman", Georgia, var(--font);
-      font-weight:1000;
+    .paper-dir2::after{
+      background: linear-gradient(180deg, rgba(17,58,122,.88), rgba(28,78,165,.40)) !important;
+      box-shadow: 0 0 0 5px rgba(17,58,122,.10) !important;
+    }
+    .paper-dir3::after{
+      background: linear-gradient(180deg, rgba(11,42,91,.90), rgba(99,102,241,.40)) !important;
+      box-shadow: 0 0 0 5px rgba(11,42,91,.10) !important;
     }
 
-    /* 方向标题：不同颜色+略不同字体 */
-    .h-dir{ font-weight:1000; }
-    .h-dir-1{ color:#1d4ed8; font-family: ui-sans-serif, var(--font); }
-    .h-dir-2{ color:#047857; font-family: ui-sans-serif, var(--font); }
-    .h-dir-3{ color:#6d28d9; font-family: ui-sans-serif, var(--font); }
+    /* “代表性专著”稍微暖一点点，但仍在同体系 */
+    .paper-book::before{
+      background: linear-gradient(90deg,
+        rgba(229,57,53,.30),
+        rgba(28,78,165,.55),
+        transparent
+      ) !important;
+    }
 
-    /* 每个方向框：顶线颜色区分 */
-    .pbox-dir-1::before{ background: linear-gradient(90deg, rgba(29,78,216,.85), rgba(29,78,216,.20), transparent); }
-    .pbox-dir-2::before{ background: linear-gradient(90deg, rgba(4,120,87,.85), rgba(4,120,87,.18), transparent); }
-    .pbox-dir-3::before{ background: linear-gradient(90deg, rgba(109,40,217,.85), rgba(109,40,217,.18), transparent); }
-
-    /* 让框之间更紧凑不空 */
-    .pbox .p-item:last-child{ margin-bottom:0; }
+    /* 提示框更像 research 页的轻提示 */
+    .paper-tip{
+      background:
+        linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02)),
+        rgba(255,255,255,.92) !important;
+    }
   </style>
 </body>
 </html>
