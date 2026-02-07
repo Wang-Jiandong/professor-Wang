@@ -691,4 +691,71 @@ a.research-card:hover{
   .fig img{ height:auto; }
   .cap{ white-space: normal; }
 }
+/* ===== 更统一、更高级：单主色系（深蓝） ===== */
+
+/* ResearchGate 链接保持黑色 */
+.papers-plain a.rg{ color:#111827 !important; }
+
+/* 小框整体更“高级”：更轻的阴影、更干净的线条 */
+.pbox{
+  border:1px solid rgba(17,24,39,.09) !important;
+  box-shadow: 0 10px 22px rgba(16,24,40,.08) !important;
+}
+
+/* 顶部细线：统一蓝色系，降低饱和度 */
+.pbox::before{
+  height:3px;
+  background: linear-gradient(
+    90deg,
+    rgba(28,78,165,.55),
+    rgba(28,78,165,.18),
+    transparent
+  ) !important;
+}
+
+/* 提示框：更淡的蓝灰渐变（更克制） */
+.pbox-tip{
+  background: linear-gradient(180deg, rgba(28,78,165,.045), rgba(11,42,91,.02)) !important;
+}
+
+/* 专著框：不再用橙金顶线（太跳），改为同色系但略深一点 */
+.pbox-book::before{
+  background: linear-gradient(
+    90deg,
+    rgba(28,78,165,.62),
+    rgba(28,78,165,.20),
+    transparent
+  ) !important;
+}
+/* “代表性专著”标题：用更稳的深蓝 serif 点缀（高级但不花） */
+.h-book{
+  color:#0b2a5b !important;
+  font-family: "Times New Roman", Georgia, var(--font) !important;
+  font-weight:1000 !important;
+}
+
+/* 三个方向：顶线只做“同色深浅差”，而不是换绿/紫 */
+.pbox-dir-1::before{
+  background: linear-gradient(90deg, rgba(28,78,165,.60), rgba(28,78,165,.18), transparent) !important;
+}
+.pbox-dir-2::before{
+  background: linear-gradient(90deg, rgba(28,78,165,.52), rgba(28,78,165,.16), transparent) !important;
+}
+.pbox-dir-3::before{
+  background: linear-gradient(90deg, rgba(28,78,165,.44), rgba(28,78,165,.14), transparent) !important;
+}
+
+/* 方向标题：统一“深蓝”，只用细微层次区分（更高级） */
+.h-dir{ 
+  font-family: ui-sans-serif, var(--font) !important;
+  letter-spacing:.2px !important;
+  font-weight:1000 !important;
+}
+.h-dir-1{ color: rgba(11,42,91,.98) !important; }
+.h-dir-2{ color: rgba(11,42,91,.92) !important; }
+.h-dir-3{ color: rgba(11,42,91,.86) !important; }
+
+/* 链接：依旧黑字，但 hover 统一深蓝 */
+.papers-plain a.pdf{ color:#111827 !important; }
+.papers-plain a.pdf:hover{ color:#0b2a5b !important; }
 
