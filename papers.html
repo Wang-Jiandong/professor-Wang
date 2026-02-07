@@ -214,6 +214,33 @@
         linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02)),
         rgba(255,255,255,.92) !important;
     }
+    /* ===== Papers: 专著 + ResearchGate 统一黑色 + 下划线 ===== */
+
+/* ResearchGate 链接：黑色 + 下划线 */
+a.rg-black{
+  color:#111827 !important;
+  font-weight:900;
+  text-decoration: underline;
+  text-decoration-color: rgba(17,24,39,.45);
+  text-underline-offset: 3px;
+}
+
+/* 两本专著链接：黑色 + 下划线 */
+.paper-book a.hot{
+  color:#111827 !important;          /* 强制黑色 */
+  font-weight:900;
+  text-decoration: underline;
+  text-decoration-color: rgba(17,24,39,.45);
+  text-underline-offset: 3px;
+}
+
+/* hover 时轻微变深，保持高级感 */
+.paper-book a.hot:hover,
+a.rg-black:hover{
+  color:#0b2a5b !important;
+  text-decoration-color: rgba(11,42,91,.55);
+}
+
   </style>
 </body>
 </html>
