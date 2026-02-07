@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>论文专著</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div class="shell">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <nav class="nav" aria-label="Site Navigation">
+        <a href="index.html"><span class="pill"></span>团队主页</a>
+        <a href="research.html"><span class="pill"></span>研究方向</a>
+        <a href="papers.html"><span class="pill"></span>论文专著</a>
+        <a href="team.html"><span class="pill"></span>研究团队</a>
+      </nav>
+      <div class="footer">© <span id="y"></span> 智能电网 / 系统研究团队</div>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <div class="container">
+        <section class="card papers-plain">
+
+          <p class="p-line">
+            请访问<a class="rg" href="https://www.researchgate.net/profile/Jiandong-Wang-14" target="_blank" rel="noopener">ResearchGate的英文网站</a>，有较为全面的论文专著信息。
+          </p>
+
+          <p class="p-h">代表性专著：</p>
+          <p class="p-item">
+            [1]
+            <a class="pdf" href="https://weread.qq.com/web/bookDetail/78c32b20727ecf7478c7e04" target="_blank" rel="noopener">
+              王建东（著）. 智能工业报警系统
+            </a>，北京：机械工业出版社，ISBN 978-7-111-67677-5, 42.4万字，2021.4.
+          </p>
+          <p class="p-item">
+            [2]
+            <a class="pdf" href="https://link.springer.com/book/10.1007/978-981-97-6516-4" target="_blank" rel="noopener">
+              Jiandong Wang*, Wenkai Hu, Tongwen Chen. Intelligent Industrial Alarm Systems.
+            </a>
+            Springer, November 2024.
+          </p>
+
+          <p class="p-h">单变量报警器方向的代表性论文：</p>
+          <p class="p-item">[1] <a class="pdf" href="assets/1.1.pdf" target="_blank" rel="noopener">J. Wang*, S. Sun, Z. Wang, X. Zhou, P. Gyasi. Alarm deadband design based on maximum amplitude deviations and Bayesian estimation. IEEE Transactions on Control Systems Technology, 31:1941-1948, 2023.</a></p>
+          <p class="p-item">[2] <a class="pdf" href="assets/1.2.pdf" target="_blank" rel="noopener">J. Wang*, Z. Wang, X. Zhou, &amp; F. Yang. Design of delay timers based on estimated probability mass functions of alarm durations. Journal of Process Control, 110:154-165, 2022.</a></p>
+          <p class="p-item">[3] <a class="pdf" href="assets/1.3.pdf" target="_blank" rel="noopener">J. Xu, J. Wang*, I. Izadi, T. Chen. Performance assessment and design for univariate alarm systems based on FAR, MAR and AAD. IEEE Transactions on Automation Science and Engineering, 9:296-307, 2012.</a></p>
+
+          <p class="p-h">多变量报警器方向的代表性论文：</p>
+          <p class="p-item">[1] <a class="pdf" href="assets/2.1.pdf" target="_blank" rel="noopener">M. Wei, J. Wang*, Z. Zhang. A normal operating zone model for condition monitoring of reaction-separation-recycle processes. Chemical Engineering Science, 315:121863, 2025.</a></p>
+          <p class="p-item">[2] <a class="pdf" href="assets/2.2.pdf" target="_blank" rel="noopener">M. Wei, J. Wang*, S. Gao, J. Li, X. Pang. An operating zone model for safety and efficiency monitoring of power generation units in thermal power plants. Control Engineering Practice, 153:106101, 2024.</a></p>
+          <p class="p-item">[3] <a class="pdf" href="assets/2.3.pdf" target="_blank" rel="noopener">Y. Yu, J. Wang*, &amp; Z. Ouyang. Designing dynamic alarm limits and adjusting manipulated variables for multivariate systems. IEEE Transactions on Industrial Electronics, 67:2314-2325, 2020.</a></p>
+
+          <p class="p-h">调节阀建模方向的代表性论文：</p>
+          <p class="p-item">[1] <a class="pdf" href="assets/3.1.pdf" target="_blank" rel="noopener">X. Xing, J. Wang*, P. Wei, S. Gao, X. Pang. Identification for nonlinear flow characteristics of main steam regulating valves in power plants by mining special data segments. IEEE Transactions on Industrial Informatics, 20:7915-7925, 2024.</a></p>
+          <p class="p-item">[2] <a class="pdf" href="assets/3.2.pdf" target="_blank" rel="noopener">L. Fang, J. Wang*. Identification of Hammerstein systems using Preisach model for sticky control valves. Industrial &amp; Engineering Chemistry Research, 54:1028-1040, 2015.</a></p>
+          <p class="p-item">[3] <a class="pdf" href="assets/3.3.pdf" target="_blank" rel="noopener">J. Wang*, Q. Zhang. Detection of asymmetric control valve stiction from oscillatory data using an extended Hammerstein system identification method. Journal of Process Control, 24:1-12, 2014.</a></p>
+
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav a').forEach(a=>{
+      if(a.getAttribute('href')===path) a.classList.add('active');
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- 仅用于“按截图排版 + 超链接颜色” -->
+  <style>
+    .papers-plain{ padding:26px 30px; }
+    .p-line{ margin:0 0 14px; font-size:15.5px; line-height:1.9; font-weight:650; color:#111827; }
+    .p-h{ margin:18px 0 8px; font-size:15.5px; font-weight:900; color:#111827; }
+    .p-item{ margin:6px 0; font-size:14.8px; line-height:1.85; font-weight:650; color:#111827; }
+    .papers-plain a{ text-decoration: underline; text-underline-offset: 2px; }
+    .papers-plain a.rg{ color:#6b21a8; font-weight:900; }   /* ResearchGate 紫色，贴近截图效果 */
+    .papers-plain a.pdf{ color:#111827; }                  /* 条目本身黑字，可点 */
+    .papers-plain a.pdf:hover{ color:#0b2a5b; }
+  </style>
+</body>
+</html>
