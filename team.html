@@ -85,69 +85,105 @@
 
   <!-- 本页小补丁：只美化“表格”，不动全局 CSS -->
   <style>
-    /* 表格容器：与 research-1/2/3 的卡片质感一致 */
-    .team-table-wrap{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(17,24,39,.10);
-      background:
-        linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02));
-      box-shadow: 0 10px 22px rgba(16,24,40,.08);
-    }
+/* ===== 本页小补丁：只美化“表格”，不动全局 CSS ===== */
 
-    .team-table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      background:#fff;
-      font-size:15px;
-    }
+.team-table-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(17,24,39,.10);
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(16,24,40,.08);
+}
 
-    /* 表头：深蓝底 + 白字，高级且醒目 */
-    .team-table thead th{
-      padding:14px 14px;
-      text-align:left;
-      color:#fff;
-      font-weight:1000;
-      letter-spacing:.2px;
-      background: linear-gradient(90deg, rgba(28,78,165,.95), rgba(11,42,91,.92));
-      border-bottom:1px solid rgba(255,255,255,.18);
-    }
+.team-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+  font-size:15px;
+}
 
-    /* 表体：更舒服的行高 + 细分割线 */
-    .team-table tbody td{
-      padding:14px 14px;
-      color:#111827;
-      font-weight:650;
-      line-height:1.85;
-      border-bottom:1px solid rgba(17,24,39,.08);
-      vertical-align:top;
-    }
+/* ✅ 表头：改为“青绿渐变”——和左侧蓝导航形成对比，更鲜艳更舒服 */
+.team-table thead th{
+  padding:14px 14px;
+  text-align:left;
+  color:#fff;
+  font-weight:1000;
+  letter-spacing:.2px;
+  background: linear-gradient(90deg, #12b886, #0ea5e9);
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
 
-    /* 左列稍窄且更稳重 */
-    .team-table tbody td:first-child{
-      width:28%;
-      color:#0b2a5b;
-      font-weight:900;
-    }
+/* 表体基础 */
+.team-table tbody td{
+  padding:14px 14px;
+  color:#111827;
+  font-weight:650;
+  line-height:1.85;
+  border-bottom:1px solid rgba(17,24,39,.08);
+  vertical-align:top;
+  background:#fff;
+}
 
-    /* 斑马纹：浅浅的蓝灰（不花） */
-    .team-table tbody tr:nth-child(odd) td{
-      background: rgba(246,248,252,.85);
-    }
+/* ✅ 左列：更稳重 + 左侧彩色竖条（关键：让表格不再“全是蓝”） */
+.team-table tbody td:first-child{
+  width:28%;
+  font-weight:1000;
+  color:#0b2a5b;
+  position:relative;
+  padding-left:18px; /* 给彩色竖条留空间 */
+}
 
-    /* hover：轻微提亮，显得“可读、精致” */
-    .team-table tbody tr:hover td{
-      background: rgba(28,78,165,.06);
-    }
+/* 彩色竖条（默认颜色） */
+.team-table tbody td:first-child::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:16px;
+  bottom:16px;
+  width:4px;
+  border-radius:999px;
+  background: #ff4d4f; /* 默认红 */
+  box-shadow: 0 0 0 4px rgba(255,77,79,.12);
+}
 
-    /* 移动端：更紧凑 */
-    @media (max-width: 900px){
-      .team-table{ font-size:14px; }
-      .team-table thead th,
-      .team-table tbody td{ padding:12px 12px; }
-      .team-table tbody td:first-child{ width:36%; }
-    }
+/* 三行分别用 红 / 青 / 紫 —— 鲜艳但不杂 */
+.team-table tbody tr:nth-child(1) td:first-child::before{
+  background:#ff4d4f;
+  box-shadow: 0 0 0 4px rgba(255,77,79,.12);
+}
+.team-table tbody tr:nth-child(2) td:first-child::before{
+  background:#12b886;
+  box-shadow: 0 0 0 4px rgba(18,184,134,.12);
+}
+.team-table tbody tr:nth-child(3) td:first-child::before{
+  background:#7c3aed;
+  box-shadow: 0 0 0 4px rgba(124,58,237,.12);
+}
+
+/* 斑马纹：改成更干净的“青灰”底 */
+.team-table tbody tr:nth-child(odd) td{
+  background: rgba(18,184,134,.04);
+}
+
+/* hover：更亮一点点（青绿系），舒服且有科技感 */
+.team-table tbody tr:hover td{
+  background: rgba(14,165,233,.08);
+}
+
+/* 圆角：让表格像卡片 */
+.team-table thead th:first-child{ border-top-left-radius:14px; }
+.team-table thead th:last-child{ border-top-right-radius:14px; }
+.team-table tbody tr:last-child td:first-child{ border-bottom-left-radius:14px; }
+.team-table tbody tr:last-child td:last-child{ border-bottom-right-radius:14px; }
+
+/* 移动端 */
+@media (max-width: 900px){
+  .team-table{ font-size:14px; }
+  .team-table thead th,
+  .team-table tbody td{ padding:12px 12px; }
+  .team-table tbody td:first-child{ width:36%; padding-left:18px; }
+}
   </style>
 </body>
 </html>
