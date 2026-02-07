@@ -152,95 +152,13 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 
-  <!-- 仅对 papers 页面做很小的覆盖：让它完全贴合 research-1/2/3 的质感 -->
-  <style>
-    /* ResearchGate 链接：你要求“黑颜色就行” */
-    .rg-black{ color:#111827 !important; font-weight:900; }
-    .rg-black::after{ display:none !important; } /* 不要红色下划动画 */
+<style>
+/* ===== papers.html only (稳定版本，不打架) ===== */
 
-    /* PDF 链接：保持正文黑，hover 再微微变蓝（更学术） */
-    a.pdf-link{
-      color:#111827;
-      font-weight:650;
-      text-decoration: underline;
-      text-decoration-color: rgba(17,24,39,.22);
-      text-underline-offset: 3px;
-    }
-    a.pdf-link:hover{
-      color:#0b2a5b;
-      text-decoration-color: rgba(11,42,91,.35);
-    }
+/* papers stack 间距 */
+.papers-stack{ gap:14px; }
 
-    /* 让 papers 的 stack 稍微更紧凑一点 */
-    .papers-stack{ gap:14px; }
-
-    /* 每块顶部细线：延续你 research-1/2/3 的“蓝+红柔和渐变” */
-    .paper-card::before{
-      background: linear-gradient(90deg,
-        rgba(28,78,165,.75),
-        rgba(229,57,53,.28),
-        transparent
-      ) !important;
-    }
-
-    /* 方向块轻微区分：只改“左侧胶囊色”，不改整体风格 */
-    .paper-dir1::after{
-      background: linear-gradient(180deg, rgba(28,78,165,.90), rgba(28,78,165,.55)) !important;
-      box-shadow: 0 0 0 5px rgba(28,78,165,.12) !important;
-    }
-    .paper-dir2::after{
-      background: linear-gradient(180deg, rgba(17,58,122,.88), rgba(28,78,165,.40)) !important;
-      box-shadow: 0 0 0 5px rgba(17,58,122,.10) !important;
-    }
-    .paper-dir3::after{
-      background: linear-gradient(180deg, rgba(11,42,91,.90), rgba(99,102,241,.40)) !important;
-      box-shadow: 0 0 0 5px rgba(11,42,91,.10) !important;
-    }
-
-    /* “代表性专著”稍微暖一点点，但仍在同体系 */
-    .paper-book::before{
-      background: linear-gradient(90deg,
-        rgba(229,57,53,.30),
-        rgba(28,78,165,.55),
-        transparent
-      ) !important;
-    }
-
-    /* 提示框更像 research 页的轻提示 */
-    .paper-tip{
-      background:
-        linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02)),
-        rgba(255,255,255,.92) !important;
-    }
-    /* ===== Papers: 专著 + ResearchGate 统一黑色 + 下划线 ===== */
-
-/* ResearchGate 链接：黑色 + 下划线 */
-a.rg-black{
-  color:#111827 !important;
-  font-weight:900;
-  text-decoration: underline;
-  text-decoration-color: rgba(17,24,39,.45);
-  text-underline-offset: 3px;
-}
-
-/* 两本专著链接：黑色 + 下划线 */
-.paper-book a.hot{
-  color:#111827 !important;          /* 强制黑色 */
-  font-weight:900;
-  text-decoration: underline;
-  text-decoration-color: rgba(17,24,39,.45);
-  text-underline-offset: 3px;
-}
-
-/* hover 时轻微变深，保持高级感 */
-.paper-book a.hot:hover,
-a.rg-black:hover{
-  color:#0b2a5b !important;
-  text-decoration-color: rgba(11,42,91,.55);
-}
-/* ===== Papers page fine underline controls ===== */
-
-/* 只给 ResearchGate 这个词加下划线（黑色不变） */
+/* ResearchGate：黑色 + 下划线（只给 ResearchGate 这个词） */
 a.rg-only{
   color:#111827 !important;
   font-weight:900;
@@ -249,27 +167,71 @@ a.rg-only{
   text-underline-offset: 3px;
 }
 
-/* 专著条目里：尾巴下划线（你指定的出版信息/时间） */
+/* [1][2][3] 编号：红色点缀 */
+.paper-no{
+  color: var(--accent) !important; /* #e53935 */
+  font-weight:1000;
+  margin-right:6px;
+}
+
+/* 代表性专著：书名链接黑色 + 下划线 */
+a.book-link{
+  color:#111827 !important;
+  font-weight:900;
+  text-decoration: underline;
+  text-decoration-color: rgba(17,24,39,.45);
+  text-underline-offset: 3px;
+}
+a.book-link:hover{
+  color:#0b2a5b !important;
+  text-decoration-color: rgba(11,42,91,.55);
+}
+
+/* 出版信息尾巴：下划线 */
 .u-tail{
   text-decoration: underline;
   text-decoration-color: rgba(17,24,39,.45);
   text-underline-offset: 3px;
 }
 
-/* [1][2] 编号改为“点缀红”（推荐，不刺眼） */
-.paper-no{
-  color: var(--accent);   /* #e53935 */
-  font-weight:1000;
+/* PDF 链接：黑色正文 + 细下划线 */
+a.pdf-link{
+  color:#111827;
+  font-weight:650;
+  text-decoration: underline;
+  text-decoration-color: rgba(17,24,39,.22);
+  text-underline-offset: 3px;
 }
-/* ===== FIX: 代表性专著这一块顶边渐变与其它一致 ===== */
-.paper-box::before{
+a.pdf-link:hover{
+  color:#0b2a5b;
+  text-decoration-color: rgba(11,42,91,.35);
+}
+
+/* 顶部渐变线：注意！你页面用的是 .paper-card，不是 paper-box */
+.paper-card::before{
   background: linear-gradient(90deg,
-    rgba(28,78,165,.70),
-    rgba(229,57,53,.45),
+    rgba(28,78,165,.75),
+    rgba(229,57,53,.28),
     transparent
   ) !important;
 }
 
-  </style>
+/* 代表性专著：可以稍微暖一点点（不反） */
+.paper-book::before{
+  background: linear-gradient(90deg,
+    rgba(28,78,165,.75),
+    rgba(229,57,53,.35),
+    transparent
+  ) !important;
+}
+
+/* 提示框背景轻一点 */
+.paper-tip{
+  background:
+    linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02)),
+    rgba(255,255,255,.92) !important;
+}
+</style>
+
 </body>
 </html>
