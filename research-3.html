@@ -55,6 +55,7 @@
               </p>
             </div>
 
+            <!-- ✅ 应用案例 + 两张图 + 图注：同一个框（stack-item）里 -->
             <div class="stack-item">
               <div class="stack-h">应用案例</div>
               <p class="stack-p">
@@ -62,36 +63,33 @@
                 估计主汽调节阀的流量非线性特征曲线（图1b），
                 通过调整阀的幅值补偿等方式，对补偿后非线性特征对一次调节控制性能的不同影响进行评估。
               </p>
+
+              <div class="fig-grid" style="margin-top:12px;">
+                <div class="fig">
+                  <img src="assets/图片1.png" alt="图1a 从历史数据中挖掘适合建模的特殊数据段" />
+                </div>
+
+                <div class="fig">
+                  <img src="assets/图片2.png" alt="图1b 基于空间密度峰值曲线的非线性特征估计结果" />
+                </div>
+              </div>
+
+              <div class="cap-row" style="margin-top:10px;">
+                <div class="cap">图1a 从历史数据中挖掘适合建模的特殊数据段</div>
+                <div class="cap">图1b 基于空间密度峰值曲线的非线性特征估计结果</div>
+              </div>
+            </div>
+
+            <!-- ✅ 论文专著：单独一个框（不要和图片/应用案例混在一起） -->
+            <div class="stack-item">
+              <div class="stack-h">论文专著</div>
+              <p class="stack-p">
+                详见 <a class="hot" href="papers.html">“论文专著”</a> 部分 —— 调节阀建模与补偿方向的代表性论文。
+              </p>
             </div>
 
           </div>
 
-          <!-- ===== Images (two figures with captions) ===== -->
-          <div class="media-block">
-
-
-<div class="fig-grid">
-  <div class="fig">
-    <img src="assets/图片1.png" alt="图1a 从历史数据中挖掘适合建模的特殊数据段" />
-  </div>
-
-  <div class="fig">
-    <img src="assets/图片2.png" alt="图1b 基于空间密度峰值曲线的非线性特征估计结果" />
-  </div>
-</div>
-
-<div class="cap-row">
-  <div class="cap">图1a 从历史数据中挖掘适合建模的特殊数据段</div>
-  <div class="cap">图1b 基于空间密度峰值曲线的非线性特征估计结果</div>
-</div>
-
-
-            <div class="stack-item">
-              <div class="stack-h">论文专著</div>
-              <p class="stack-p">
-详见 <a class="hot" href="papers.html">“论文专著”</a> 部分 —— 调节阀建模与补偿方向的代表性论文。
-              </p>
-            </div>
           <p class="backline"><a class="hot" href="research.html">← 返回研究方向</a></p>
 
         </section>
@@ -104,7 +102,8 @@
     document.querySelectorAll('.nav a').forEach(a=>{
       if(a.getAttribute('href')===path) a.classList.add('active');
     });
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const y = document.getElementById('y');
+    if (y) y.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
