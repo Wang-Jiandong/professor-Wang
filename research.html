@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>研究团队 | 研究方向</title>
+  <title>研究方向</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
   <div class="shell">
+    <!-- ===== Sidebar ===== -->
     <aside class="sidebar">
       <nav class="nav" aria-label="Site Navigation">
         <a href="index.html"><span class="pill"></span>团队主页</a>
@@ -18,58 +19,154 @@
       </nav>
     </aside>
 
+    <!-- ===== Main ===== -->
     <main class="main">
       <div class="container">
         <section class="card">
+
+          <!-- 页面标题 -->
           <div class="research-head">
-            <h1 class="page-title" style="margin:0;">研究方向主要包括（点击链接查看详细信息）：</h1>
+            <h1 class="detail-title" id="pageTitle">研究方向</h1>
+            <div class="badges" aria-hidden="true">
+              <span class="badge">可编辑内容：content/research.md</span>
+            </div>
           </div>
 
-          <div class="research-grid">
-            <a class="research-card" href="research-1.html">
-              <div class="top">
-                <div class="no">1</div>
-                <div>
-                  <div class="title">工业报警器的性能评价与优化设计</div>
-                </div>
-                <div class="arrow">›</div>
-              </div>
-              <div class="line"></div>
-            </a>
+          <!-- 说明（保持简洁） -->
+          <p class="detail-subline" id="pageSubline" style="margin-top:-2px;">
+            研究方向主要包括（点击卡片进入详情页）
+          </p>
 
-            <a class="research-card" href="research-2.html">
-              <div class="top">
-                <div class="no">2</div>
-                <div>
-                  <div class="title">基于正常工作区的离心泵运行状况监控</div>
-                </div>
-                <div class="arrow">›</div>
-              </div>
-              <div class="line"></div>
-            </a>
+          <!-- 卡片容器：由 content/research.md 自动生成 -->
+          <div class="research-grid" id="researchGrid"></div>
 
-            <a class="research-card" href="research-3.html">
-              <div class="top">
-                <div class="no">3</div>
-                <div>
-                  <div class="title">调节阀流量非线性特征估计与补偿</div>
-                </div>
-                <div class="arrow">›</div>
-              </div>
-              <div class="line"></div>
-            </a>
+          <!-- 兜底提示（md 读取失败时显示） -->
+          <div class="info-box" id="fallbackBox" style="display:none; margin-top:12px;">
+            <p>
+              未能读取 <b>content/research.md</b>。请检查文件路径是否存在：<br/>
+              <span class="muted">professor-Wang/content/research.md</span>
+            </p>
           </div>
+
         </section>
       </div>
     </main>
   </div>
 
   <script>
+    // ===== 左侧导航高亮 =====
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav a').forEach(a=>{
       if(a.getAttribute('href')===path) a.classList.add('active');
     });
-    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ===== 读取并解析 Markdown（极简解析：# / ## / numbered list）=====
+    const mdUrl = 'content/research.md';
+
+    function escHtml(s){
+      return (s || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+
+    function parseResearchMd(md){
+      const lines = md.replace(/\r\n/g, '\n').split('\n');
+
+      let title = '研究方向';
+      let subline = '研究方向主要包括（点击卡片进入详情页）';
+      const items = [];
+
+      // 允许格式：
+      // 1. 标题 | research-1.html
+      // 1. 标题 | research-1.html | 可选说明
+      // 或者用中文竖线：｜也兼容
+      const reItem = /^\s*(\d+)\.\s*(.+?)\s*$/;
+
+      for (let i=0; i<lines.length; i++){
+        const raw = lines[i].trim();
+        if(!raw) continue;
+
+        if(raw.startsWith('# ')){
+          title = raw.slice(2).trim() || title;
+          continue;
+        }
+        if(raw.startsWith('## ')){
+          subline = raw.slice(3).trim() || subline;
+          continue;
+        }
+
+        const m = raw.match(reItem);
+        if(m){
+          const no = m[1];
+          const rest = m[2];
+
+          // 分隔符：| 或 ｜，最多三段：标题 | 链接 | 说明
+          const parts = rest.split('|').map(s=>s.trim()).filter(Boolean);
+          if(parts.length === 1){
+            // 没有链接时：只显示标题，不跳转
+            items.push({ no, title: parts[0], href: '', desc: '' });
+          }else{
+            const t = parts[0];
+            const href = parts[1] || '';
+            const desc = parts[2] || '';
+            items.push({ no, title: t, href, desc });
+          }
+        }
+      }
+
+      return { title, subline, items };
+    }
+
+    function renderCards(data){
+      document.getElementById('pageTitle').textContent = data.title || '研究方向';
+      document.getElementById('pageSubline').textContent = data.subline || '研究方向主要包括（点击卡片进入详情页）';
+
+      const grid = document.getElementById('researchGrid');
+      grid.innerHTML = '';
+
+      if(!data.items || data.items.length === 0){
+        document.getElementById('fallbackBox').style.display = '';
+        return;
+      }
+
+      data.items.forEach(it=>{
+        const a = document.createElement('a');
+        a.className = 'research-card';
+        a.href = it.href ? it.href : 'javascript:void(0)';
+        if(it.href){
+          a.setAttribute('rel','noopener');
+        }
+
+        const descHtml = it.desc
+          ? `<p class="desc">${escHtml(it.desc)}</p>`
+          : `<p class="desc" style="opacity:.85;">点击查看详细介绍与实验展示</p>`;
+
+        a.innerHTML = `
+          <div class="top">
+            <div class="no">${escHtml(it.no)}</div>
+            <div style="min-width:0;">
+              <div class="title">${escHtml(it.title)}</div>
+              ${descHtml}
+              <div class="line"></div>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+        `;
+        grid.appendChild(a);
+      });
+    }
+
+    fetch(mdUrl, { cache: 'no-store' })
+      .then(r => {
+        if(!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(md => {
+        const data = parseResearchMd(md);
+        renderCards(data);
+      })
+      .catch(err => {
+        console.error('Failed to load research.md:', err);
+        document.getElementById('fallbackBox').style.display = '';
+      });
   </script>
 </body>
 </html>
