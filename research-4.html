@@ -24,14 +24,12 @@
       <div class="container">
         <section class="card">
 
-          <!-- 标题：从 md 的 # 读取 -->
           <h1 class="detail-title" id="pageTitle">新的研究方向</h1>
 
           <div class="detail-stack" id="stackRoot"></div>
 
           <p class="backline"><a class="hot" href="research.html">← 返回研究方向</a></p>
 
-          <!-- 兜底提示（md 读不到时显示） -->
           <div class="stack-item" id="fallbackBox" style="display:none; margin-top:14px;">
             <div class="stack-h">提示</div>
             <p class="stack-p" style="margin:0;">
@@ -51,7 +49,6 @@
       if(a.getAttribute('href')===path) a.classList.add('active');
     });
 
-    // ===== 配置：读取哪个 md =====
     const mdUrl = 'content/research-4.md';
 
     function escHtml(s){
@@ -60,22 +57,20 @@
       }[m]));
     }
 
-    // 解析规则（老师只写纯文字）：
+    // 解析规则：
     // # 标题
-    // ## 研究背景 / ## 研究目标 / ## 主要思路 / ## 应用案例 / ## 技术细节
-    // 视频：在任意段落中写一行：视频：assets/媒体4.mp4
-    // （我们会把视频放进“应用案例”同一个框里；若不在应用案例里写，也会放到对应段落里）
+    // ## 段落标题
+    // 段落内容：纯文字
+    // 视频：视频：assets/xxx.mp4  （会放在该段落同一框里）
     function parseMd(md){
       const lines = md.replace(/\r\n/g, '\n').split('\n');
 
       let title = '新的研究方向';
       const sections = []; // {h, pLines:[], videoSrc:''}
-
       let cur = null;
 
       function pushCur(){
         if(!cur) return;
-        // 合并文本
         cur.p = cur.pLines.join('\n').trim();
         delete cur.pLines;
         sections.push(cur);
@@ -90,23 +85,18 @@
           title = line.slice(2).trim() || title;
           continue;
         }
-
         if(line.startsWith('## ')){
           pushCur();
           cur = { h: line.slice(3).trim(), pLines: [], videoSrc: '' };
           continue;
         }
-
-        // 视频行：视频：assets/xxx.mp4
         if(line.startsWith('视频：')){
           const src = line.replace(/^视频：/,'').trim();
           if(cur) cur.videoSrc = src;
           continue;
         }
 
-        // 普通文字
         if(!cur){
-          // 如果老师没写 ##，也不至于丢内容：自动归到“说明”
           cur = { h: '说明', pLines: [], videoSrc: '' };
         }
         cur.pLines.push(rawLine);
@@ -120,7 +110,6 @@
       const h = escHtml(sec.h || '');
       const p = escHtml(sec.p || '').replace(/\n/g, '<br>');
 
-      // 视频块：完全沿用你 research-1 的写法（同框内 video-wrap video-small）
       const videoHtml = sec.videoSrc
         ? `
           <div class="video-wrap video-small" style="margin-top:12px;">
@@ -128,8 +117,7 @@
               <source src="${escHtml(sec.videoSrc)}" type="video/mp4">
             </video>
           </div>
-        `
-        : '';
+        ` : '';
 
       return `
         <div class="stack-item">
@@ -140,8 +128,19 @@
       `;
     }
 
+    // ✅ 固定追加的“技术细节”（每个方向都一样）
+    function techBlockHTML(){
+      return `
+        <div class="stack-item">
+          <div class="stack-h">技术细节</div>
+          <p class="stack-p">
+            详见 <a class="hot" href="papers.html">“论文专著”</a> 部分 —— 本研究方向的代表性论文。
+          </p>
+        </div>
+      `;
+    }
+
     function render(data){
-      // 标题 + 浏览器标题
       document.getElementById('pageTitle').textContent = data.title || '新的研究方向';
       document.title = '研究方向 | ' + (data.title || '新的研究方向');
 
@@ -153,10 +152,12 @@
         return;
       }
 
-      // 确保“应用案例”存在时，视频会在同一个框内（老师只要把 视频： 写在应用案例下面）
       data.sections.forEach(sec=>{
         root.insertAdjacentHTML('beforeend', buildSectionHTML(sec));
       });
+
+      // ✅ 最后统一追加：技术细节（带 papers.html 链接）
+      root.insertAdjacentHTML('beforeend', techBlockHTML());
     }
 
     fetch(mdUrl, { cache: 'no-store' })
