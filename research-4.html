@@ -9,7 +9,6 @@
 
 <body>
   <div class="shell">
-    <!-- ===== Sidebar ===== -->
     <aside class="sidebar">
       <nav class="nav" aria-label="Site Navigation">
         <a href="index.html"><span class="pill"></span>团队主页</a>
@@ -19,7 +18,6 @@
       </nav>
     </aside>
 
-    <!-- ===== Main ===== -->
     <main class="main">
       <div class="container">
         <section class="card">
@@ -60,13 +58,14 @@
     // 解析规则：
     // # 标题
     // ## 段落标题
-    // 段落内容：纯文字
-    // 视频：视频：assets/xxx.mp4  （会放在该段落同一框里）
+    // 视频：视频：assets/xxx.mp4（放在本段落同框）
+    // 论文专著：论文专著：XXX方向的代表性论文。
     function parseMd(md){
       const lines = md.replace(/\r\n/g, '\n').split('\n');
 
       let title = '新的研究方向';
       const sections = []; // {h, pLines:[], videoSrc:''}
+      let paperTail = '';  // 技术细节里“—— 后半句”
       let cur = null;
 
       function pushCur(){
@@ -95,6 +94,10 @@
           if(cur) cur.videoSrc = src;
           continue;
         }
+        if(line.startsWith('论文专著：')){
+          paperTail = line.replace(/^论文专著：/,'').trim();
+          continue;
+        }
 
         if(!cur){
           cur = { h: '说明', pLines: [], videoSrc: '' };
@@ -103,7 +106,7 @@
       }
       pushCur();
 
-      return { title, sections };
+      return { title, sections, paperTail };
     }
 
     function buildSectionHTML(sec){
@@ -128,13 +131,14 @@
       `;
     }
 
-    // ✅ 固定追加的“技术细节”（每个方向都一样）
-    function techBlockHTML(){
+    // ✅ 固定前半句 + 可变后半句（从 md 读取）
+    function techBlockHTML(paperTail){
+      const tail = paperTail ? escHtml(paperTail) : '本研究方向的代表性论文。';
       return `
         <div class="stack-item">
           <div class="stack-h">技术细节</div>
           <p class="stack-p">
-            详见 <a class="hot" href="papers.html">“论文专著”</a> 部分 —— 本研究方向的代表性论文。
+            详见 <a class="hot" href="papers.html">“论文专著”</a> 部分 —— ${tail}
           </p>
         </div>
       `;
@@ -156,8 +160,8 @@
         root.insertAdjacentHTML('beforeend', buildSectionHTML(sec));
       });
 
-      // ✅ 最后统一追加：技术细节（带 papers.html 链接）
-      root.insertAdjacentHTML('beforeend', techBlockHTML());
+      // ✅ 最后追加技术细节（尾巴来自 md）
+      root.insertAdjacentHTML('beforeend', techBlockHTML(data.paperTail));
     }
 
     fetch(mdUrl, { cache: 'no-store' })
