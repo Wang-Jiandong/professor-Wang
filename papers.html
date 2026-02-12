@@ -5,6 +5,72 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>论文专著</title>
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- ✅ papers.html only：不动全局CSS -->
+  <style>
+    /* papers stack 间距 */
+    .papers-stack{ gap:14px; }
+
+    /* ResearchGate：黑色 + 下划线（只给 ResearchGate 这个词） */
+    a.rg-only{
+      color:#111827 !important;
+      font-weight:900;
+      text-decoration: underline;
+      text-decoration-color: rgba(17,24,39,.45);
+      text-underline-offset: 3px;
+    }
+
+    /* 代表性专著：书名链接黑色 + 下划线 */
+    a.book-link{
+      color:#111827 !important;
+      font-weight:900;
+      text-decoration: underline;
+      text-decoration-color: rgba(17,24,39,.45);
+      text-underline-offset: 3px;
+    }
+    a.book-link:hover{
+      color:#0b2a5b !important;
+      text-decoration-color: rgba(11,42,91,.55);
+    }
+
+    /* PDF 链接：黑色正文 + 细下划线 */
+    a.pdf-link{
+      color:#111827;
+      font-weight:650;
+      text-decoration: underline;
+      text-decoration-color: rgba(17,24,39,.22);
+      text-underline-offset: 3px;
+    }
+    a.pdf-link:hover{
+      color:#0b2a5b;
+      text-decoration-color: rgba(11,42,91,.35);
+    }
+
+    /* 顶部渐变线：stack-item 同款 */
+    .paper-card::before{
+      background: linear-gradient(90deg,
+        rgba(28,78,165,.75),
+        rgba(229,57,53,.28),
+        transparent
+      ) !important;
+    }
+
+    /* 代表性专著：稍微暖一点点 */
+    .paper-book::before{
+      background: linear-gradient(90deg,
+        rgba(28,78,165,.75),
+        rgba(229,57,53,.35),
+        transparent
+      ) !important;
+    }
+
+    /* 提示框背景轻一点 */
+    .paper-tip{
+      background:
+        linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02)),
+        rgba(255,255,255,.92) !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -24,118 +90,15 @@
       <div class="container">
         <section class="card">
 
-          <!-- 页面标题（research-1/2/3 同款） -->
-          <h1 class="detail-title">论文专著</h1>
+          <h1 class="detail-title" id="pageTitle">论文专著</h1>
 
-          <!-- 竖排卡片（research-1/2/3 同款 stack-item） -->
-          <div class="detail-stack papers-stack">
+          <div class="detail-stack papers-stack" id="papersRoot"></div>
 
-            <!-- 提示框（只保留截图这句话，不加别的） -->
-            <div class="stack-item paper-card paper-tip">
-              <p class="stack-p" style="margin:0;">
-请访问 <a class="rg-only" href="https://www.researchgate.net/profile/Jiandong-Wang-14" target="_blank">ResearchGate</a> 的英文网站，有较为全面的论文专著信息。
-              </p>
-            </div>
-
-<!-- 代表性专著 -->
-<div class="stack-item paper-card paper-book">
-  <div class="stack-h">代表性专著:</div>
-
-  <p class="stack-p" style="margin:0;">
-    <span>[1]</span>
-    <a class="book-link" href="https://weread.qq.com/web/bookDetail/78c32b20727ecf7478c7e04" target="_blank" rel="noopener">
-      王建东（著）. 智能工业报警系统，北京：机械工业出版社，ISBN 978-7-111-67677-5, 42.4万字，2021.4.
-    </a>
-  </p>
-
-  <p class="stack-p" style="margin-top:10px;">
-    <span>[2]</span>
-    <a class="book-link" href="https://link.springer.com/book/10.1007/978-981-97-6516-4" target="_blank" rel="noopener">
-      Jiandong Wang*, Wenkai Hu, Tongwen Chen. Intelligent Industrial Alarm Systems. Springer, November 2024.
-    </a>
-  </p>
-</div>
-
-
-
-            <!-- 单变量报警器方向 -->
-            <div class="stack-item paper-card paper-dir1">
-              <div class="stack-h">单变量报警器方面的代表性论文:</div>
-
-              <p class="stack-p">
-                [1]
-                <a class="pdf-link" href="assets/1.1.pdf" target="_blank" rel="noopener">
-                  J. Wang*, S. Sun, Z. Wang, X. Zhou, P. Gyasi. Alarm deadband design based on maximum amplitude deviations and Bayesian estimation. IEEE Transactions on Control Systems Technology, 31:1941-1948, 2023.
-                </a>
-              </p>
-
-              <p class="stack-p" style="margin-top:10px;">
-                [2]
-                <a class="pdf-link" href="assets/1.2.pdf" target="_blank" rel="noopener">
-                  J. Wang*, Z. Wang, X. Zhou, & F. Yang. Design of delay timers based on estimated probability mass functions of alarm durations. Journal of Process Control, 110:154-165, 2022.
-                </a>
-              </p>
-
-              <p class="stack-p" style="margin-top:10px;">
-                [3]
-                <a class="pdf-link" href="assets/1.3.pdf" target="_blank" rel="noopener">
-                  J. Xu, J. Wang*, I. Izadi, T. Chen. Performance assessment and design for univariate alarm systems based on FAR, MAR and AAD. IEEE Transactions on Automation Science and Engineering, 9:296-307, 2012.
-                </a>
-              </p>
-            </div>
-
-            <!-- 多变量报警器方向 -->
-            <div class="stack-item paper-card paper-dir2">
-              <div class="stack-h">多变量报警器方面的代表性论文:</div>
-
-              <p class="stack-p">
-                [1]
-                <a class="pdf-link" href="assets/2.1.pdf" target="_blank" rel="noopener">
-                  M. Wei, J. Wang*, Z. Zhang. A normal operating zone model for condition monitoring of reaction-separation-recycle processes. Chemical Engineering Science, 315:121863, 2025.
-                </a>
-              </p>
-
-              <p class="stack-p" style="margin-top:10px;">
-                [2]
-                <a class="pdf-link" href="assets/2.2.pdf" target="_blank" rel="noopener">
-                  M. Wei, J. Wang*, S. Gao, J. Li, X. Pang. An operating zone model for safety and efficiency monitoring of power generation units in thermal power plants. Control Engineering Practice, 153:106101, 2024.
-                </a>
-              </p>
-
-              <p class="stack-p" style="margin-top:10px;">
-                [3]
-                <a class="pdf-link" href="assets/2.3.pdf" target="_blank" rel="noopener">
-                  Y. Yu, J. Wang*, & Z. Ouyang. Designing dynamic alarm limits and adjusting manipulated variables for multivariate systems. IEEE Transactions on Industrial Electronics, 67:2314-2325, 2020.
-                </a>
-              </p>
-            </div>
-
-            <!-- 调节阀建模方向 -->
-            <div class="stack-item paper-card paper-dir3">
-              <div class="stack-h">调节阀建模方面的代表性论文:</div>
-
-              <p class="stack-p">
-                [1]
-                <a class="pdf-link" href="assets/3.1.pdf" target="_blank" rel="noopener">
-                  X. Xing, J. Wang*, P. Wei, S. Gao, X. Pang. Identification for nonlinear flow characteristics of main steam regulating valves in power plants by mining special data segments. IEEE Transactions on Industrial Informatics, 20:7915-7925, 2024.
-                </a>
-              </p>
-
-              <p class="stack-p" style="margin-top:10px;">
-                [2]
-                <a class="pdf-link" href="assets/3.2.pdf" target="_blank" rel="noopener">
-                  L. Fang, J. Wang*. Identification of Hammerstein systems using Preisach model for sticky control valves. Industrial & Engineering Chemistry Research, 54:1028-1040, 2015.
-                </a>
-              </p>
-
-              <p class="stack-p" style="margin-top:10px;">
-                [3]
-                <a class="pdf-link" href="assets/3.3.pdf" target="_blank" rel="noopener">
-                  J. Wang*, Q. Zhang. Detection of asymmetric control valve stiction from oscillatory data using an extended Hammerstein system identification method. Journal of Process Control, 24:1-12, 2014.
-                </a>
-              </p>
-            </div>
-
+          <div class="stack-item" id="fallbackBox" style="display:none; margin-top:14px;">
+            <div class="stack-h">提示</div>
+            <p class="stack-p" style="margin:0;">
+              未能读取 <b>content/papers.md</b>，请检查文件是否存在以及路径是否正确。
+            </p>
           </div>
 
         </section>
@@ -144,93 +107,182 @@
   </div>
 
   <script>
+    // ===== nav 高亮 =====
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav a').forEach(a=>{
       if(a.getAttribute('href')===path) a.classList.add('active');
     });
-    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const mdUrl = 'content/papers.md';
+
+    function escHtml(s){
+      return (s || '').replace(/[&<>"']/g, m => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[m]));
+    }
+
+    // 规则（给老师看的“纯文字”）：
+    // # 论文专著
+    // 提示：xxx（允许包含 [ResearchGate](url)）
+    // ## 代表性专著
+    // - [书名/描述](url)
+    // ## 单变量报警器方面的代表性论文
+    // - [论文条目](assets/1.1.pdf)
+    // ...
+    function parseMd(md){
+      const lines = md.replace(/\r\n/g, '\n').split('\n');
+
+      let pageTitle = '论文专著';
+      let tipText = '';
+      const blocks = [];  // {title:'', items:[{text, href, kind}]}
+      let cur = null;
+
+      function pushCur(){
+        if(!cur) return;
+        blocks.push(cur);
+        cur = null;
+      }
+
+      function parseMdLink(s){
+        // 只解析一个 markdown link：[text](href)，其余当纯文本
+        const m = s.match(/\[([^\]]+)\]\(([^)]+)\)/);
+        if(!m) return { text: s.trim(), href: '' };
+        const text = (m[1] || '').trim();
+        const href = (m[2] || '').trim();
+        // 把 link 前后纯文本拼进 text（保持简单）
+        const before = s.slice(0, m.index).trim();
+        const after  = s.slice(m.index + m[0].length).trim();
+        const fullText = [before, text, after].filter(Boolean).join(' ');
+        return { text: fullText, href };
+      }
+
+      for(const rawLine of lines){
+        const t = rawLine.trim();
+        if(!t) continue;
+
+        // 注释/分隔线忽略
+        if(t.startsWith('//') || t.startsWith('===') || t.startsWith('---') || t.startsWith('***')) continue;
+
+        if(t.startsWith('# ')){
+          pageTitle = t.slice(2).trim() || pageTitle;
+          continue;
+        }
+
+        if(t.startsWith('提示：')){
+          tipText = t.replace(/^提示：/,'').trim();
+          continue;
+        }
+
+        if(t.startsWith('## ')){
+          pushCur();
+          cur = { title: t.slice(3).trim(), items: [] };
+          continue;
+        }
+
+        if(t.startsWith('- ')){
+          if(!cur){
+            cur = { title: '论文列表', items: [] };
+          }
+          const itemStr = t.slice(2).trim();
+
+          const { text, href } = parseMdLink(itemStr);
+
+          // 简单区分：书/论文链接样式
+          const kind = (cur.title.includes('专著') ? 'book' : 'pdf');
+
+          cur.items.push({ text, href, kind });
+          continue;
+        }
+      }
+      pushCur();
+
+      return { pageTitle, tipText, blocks };
+    }
+
+    function renderTip(tipText){
+      if(!tipText) return '';
+
+      // 把 “ResearchGate” 这个词做成黑色下划线链接（只处理一处）
+      // 允许写成：请访问 [ResearchGate](xxx) ...
+      const m = tipText.match(/\[ResearchGate\]\(([^)]+)\)/);
+      if(m){
+        const url = m[1].trim();
+        const before = tipText.slice(0, m.index);
+        const after = tipText.slice(m.index + m[0].length);
+        return `
+          <div class="stack-item paper-card paper-tip">
+            <p class="stack-p" style="margin:0;">
+              ${escHtml(before)}
+              <a class="rg-only" href="${escHtml(url)}" target="_blank" rel="noopener">ResearchGate</a>
+              ${escHtml(after)}
+            </p>
+          </div>
+        `;
+      }
+
+      // 没写链接就纯文本
+      return `
+        <div class="stack-item paper-card paper-tip">
+          <p class="stack-p" style="margin:0;">${escHtml(tipText)}</p>
+        </div>
+      `;
+    }
+
+    function renderBlock(block){
+      const title = escHtml(block.title || '');
+
+      const cls = title.includes('专著') ? 'paper-book' : 'paper-dir';
+      const itemsHtml = (block.items || []).map((it, idx) => {
+        const no = idx + 1;
+        const text = escHtml(it.text || '');
+        const href = (it.href || '').trim();
+
+        const aClass = (it.kind === 'book') ? 'book-link' : 'pdf-link';
+
+        // 允许老师写无链接条目（就显示纯文本）
+        if(!href){
+          return `<p class="stack-p" style="margin:${idx===0?'0':'10px 0 0'};"><span>[${no}]</span> ${text}</p>`;
+        }
+
+        return `
+          <p class="stack-p" style="margin:${idx===0?'0':'10px 0 0'};">
+            <span>[${no}]</span>
+            <a class="${aClass}" href="${escHtml(href)}" target="_blank" rel="noopener">${text}</a>
+          </p>
+        `;
+      }).join('');
+
+      return `
+        <div class="stack-item paper-card ${cls}">
+          <div class="stack-h">${title}:</div>
+          ${itemsHtml}
+        </div>
+      `;
+    }
+
+    function render(data){
+      document.getElementById('pageTitle').textContent = data.pageTitle || '论文专著';
+      document.title = data.pageTitle || '论文专著';
+
+      const root = document.getElementById('papersRoot');
+      root.innerHTML = '';
+
+      // tip
+      root.insertAdjacentHTML('beforeend', renderTip(data.tipText));
+
+      // blocks
+      (data.blocks || []).forEach(b=>{
+        root.insertAdjacentHTML('beforeend', renderBlock(b));
+      });
+    }
+
+    fetch(mdUrl, { cache: 'no-store' })
+      .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(md => render(parseMd(md)))
+      .catch(err => {
+        console.error(err);
+        document.getElementById('fallbackBox').style.display = '';
+      });
   </script>
-
-<style>
-/* ===== papers.html only (稳定版本，不打架) ===== */
-
-/* papers stack 间距 */
-.papers-stack{ gap:14px; }
-
-/* ResearchGate：黑色 + 下划线（只给 ResearchGate 这个词） */
-a.rg-only{
-  color:#111827 !important;
-  font-weight:900;
-  text-decoration: underline;
-  text-decoration-color: rgba(17,24,39,.45);
-  text-underline-offset: 3px;
-}
-
-/* [1][2][3] 编号：红色点缀 */
-.paper-no{
-  color: var(--accent) !important; /* #e53935 */
-  font-weight:1000;
-  margin-right:6px;
-}
-
-/* 代表性专著：书名链接黑色 + 下划线 */
-a.book-link{
-  color:#111827 !important;
-  font-weight:900;
-  text-decoration: underline;
-  text-decoration-color: rgba(17,24,39,.45);
-  text-underline-offset: 3px;
-}
-a.book-link:hover{
-  color:#0b2a5b !important;
-  text-decoration-color: rgba(11,42,91,.55);
-}
-
-/* 出版信息尾巴：下划线 */
-.u-tail{
-  text-decoration: underline;
-  text-decoration-color: rgba(17,24,39,.45);
-  text-underline-offset: 3px;
-}
-
-/* PDF 链接：黑色正文 + 细下划线 */
-a.pdf-link{
-  color:#111827;
-  font-weight:650;
-  text-decoration: underline;
-  text-decoration-color: rgba(17,24,39,.22);
-  text-underline-offset: 3px;
-}
-a.pdf-link:hover{
-  color:#0b2a5b;
-  text-decoration-color: rgba(11,42,91,.35);
-}
-
-/* 顶部渐变线：注意！你页面用的是 .paper-card，不是 paper-box */
-.paper-card::before{
-  background: linear-gradient(90deg,
-    rgba(28,78,165,.75),
-    rgba(229,57,53,.28),
-    transparent
-  ) !important;
-}
-
-/* 代表性专著：可以稍微暖一点点（不反） */
-.paper-book::before{
-  background: linear-gradient(90deg,
-    rgba(28,78,165,.75),
-    rgba(229,57,53,.35),
-    transparent
-  ) !important;
-}
-
-/* 提示框背景轻一点 */
-.paper-tip{
-  background:
-    linear-gradient(180deg, rgba(28,78,165,.05), rgba(11,42,91,.02)),
-    rgba(255,255,255,.92) !important;
-}
-</style>
-
 </body>
 </html>
