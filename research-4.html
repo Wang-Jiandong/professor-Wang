@@ -174,18 +174,19 @@
       const h = escHtml(sec.h || '');
       const p = escHtml(sec.p || '').replace(/\n/g, '<br>');
 
-      // ✅ 同一个框里：优先视频，其次图片
+       // ✅ 同一个框里：优先视频，其次图片
       let mediaHtml = '';
       if(sec.videoSrc){
+        // ✅ 视频：不显示图题，尽量占满框（和你图二一样）
         mediaHtml = `
           <div class="video-wrap video-small" style="margin-top:12px;">
-            <video controls preload="metadata" style="width:80%; display:block; margin:0 auto;">
+            <video controls preload="metadata" style="width:90%; display:block; margin:0 auto;">
               <source src="${escHtml(sec.videoSrc)}" type="video/mp4">
             </video>
-            ${sec.caption ? `<p class="figcap">${escHtml(sec.caption)}</p>` : ``}
           </div>
         `;
       }else if(sec.imgSrc){
+        // ✅ 图片：显示图题（居中）
         mediaHtml = `
           <div style="margin-top:12px;">
             <img class="md-figure" src="${escHtml(sec.imgSrc)}" alt="${escHtml(sec.caption || '')}">
