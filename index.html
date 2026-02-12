@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>团队主页</title>
+  <title>研究团队 | 团队主页</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
   <div class="shell">
+    <!-- ===== Sidebar（只保留导航按钮） ===== -->
     <aside class="sidebar">
       <nav class="nav" aria-label="Site Navigation">
         <a href="index.html"><span class="pill"></span>团队主页</a>
@@ -18,22 +19,42 @@
       </nav>
     </aside>
 
+    <!-- ===== Main ===== -->
     <main class="main">
       <div class="container">
         <section class="card">
+          <h1 class="page-title">欢迎访问我们的研究团队！</h1>
 
-          <h1 class="page-title" id="homeTitle">欢迎访问我们的研究团队！</h1>
+          <div class="grid">
+            <!-- 信息框 1（✅ 只让这一段可编辑） -->
+            <div class="info-box">
+              <p id="home_intro_text">
+                团队主要开展系统建模、异常监控、优化调度的理论研究，
+                及其在电力、石化、化工等工业领域的应用研究。
+                <span class="muted">更多详细信息敬请浏览</span>
+                <a class="hot" href="research.html">“研究方向”</a>
+                <span class="muted">部分，欢迎与我们联系、进一步交流！</span>
+              </p>
+            </div>
 
-          <div class="grid" id="homeGrid"></div>
+            <!-- 信息框 2（固定不变） -->
+            <div class="info-box">
+              <p>
+                欢迎不同阶段的学生及青年学者，以硕士生、博士生、博士后等身份加入我们的研究团队，
+                一同努力、共同成长！
+                <span class="muted">更多详细信息敬请浏览</span>
+                <a class="hot" href="team.html">“研究团队”</a>
+                <span class="muted">部分。</span>
+              </p>
+            </div>
+          </div>
 
-          <h2 class="section-title" id="contactTitle">联系方式</h2>
-          <div class="contact" id="contactBox"></div>
-
-          <div class="stack-item" id="fallbackBox" style="display:none; margin-top:14px;">
-            <div class="stack-h">提示</div>
-            <p class="stack-p" style="margin:0;">
-              未能读取 <b>content/主页.md</b>，请检查文件是否存在以及路径是否正确。
-            </p>
+          <h2 class="section-title">联系方式</h2>
+          <div class="contact">
+            <div><b>王建东 教授 / 博导</b></div>
+            <div><b>电话：18600779436</b></div>
+            <div><b>Email：jiandong@sdust.edu.cn</b></div>
+            <div><b>办公室：山东科技大学电气与自动化工程学院 J11 楼 110 室</b></div>
           </div>
 
         </section>
@@ -42,12 +63,15 @@
   </div>
 
   <script>
-    // ===== nav 高亮 =====
+    // 高亮当前页面
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav a').forEach(a=>{
       if(a.getAttribute('href')===path) a.classList.add('active');
     });
 
+    // ✅ 只读取“主页可编辑段落”
+    // 规则：content/主页.md 里写一行：简介：xxxxxxx
+    // 允许换行：用 \n 或者直接写多行（我们会自动合并）
     const mdUrl = 'content/index.md';
 
     function escHtml(s){
@@ -56,122 +80,53 @@
       }[m]));
     }
 
-    // 解析规则（只给老师看文字，不碰代码）：
-    // # 主标题
-    // ## 导语1 / ## 导语2（会变成两个 info-box）
-    // ## 联系方式（下面用“字段：内容”）
-    //
-    // 示例：
-    // 电话：186...
-    // Email：xxx@xxx
-    function parseHomeMd(md){
+    function parseIntro(md){
       const lines = md.replace(/\r\n/g,'\n').split('\n');
 
-      let title = '欢迎访问我们的研究团队！';
-      const boxes = [];        // [{title:'', textLines:[]}]
-      const contact = [];      // [{k,v}]
-      let cur = null;
-      let inContact = false;
-
-      function pushBox(){
-        if(cur && cur.textLines.length){
-          boxes.push({
-            title: cur.title || '',
-            text: cur.textLines.join('\n').trim()
-          });
-        }
-        cur = null;
-      }
+      let inIntro = false;
+      const buf = [];
 
       for(const raw of lines){
         const t = raw.trim();
         if(!t) continue;
-
-        // 忽略以 // 开头的“说明注释”
         if(t.startsWith('//')) continue;
 
-        if(t.startsWith('# ')){
-          title = t.slice(2).trim() || title;
+        // 开始：简介：
+        if(t.startsWith('简介：')){
+          inIntro = true;
+          const first = t.replace(/^简介：/,'').trim();
+          if(first) buf.push(first);
           continue;
         }
 
-        if(t.startsWith('## ')){
-          pushBox();
-          const h = t.slice(3).trim();
-
-          if(h === '联系方式'){
-            inContact = true;
-            cur = null;
-          }else{
-            inContact = false;
-            cur = { title: h, textLines: [] };
-          }
-          continue;
+        // 如果已经开始读简介：
+        if(inIntro){
+          // 碰到下一个“字段：”就停止（比如 备注：/ 其它：）
+          if(t.includes('：')) break;
+          buf.push(t);
         }
-
-        if(inContact){
-          // 联系方式用：字段：内容
-          const idx = t.indexOf('：');
-          if(idx > 0){
-            const k = t.slice(0, idx).trim();
-            const v = t.slice(idx+1).trim();
-            if(k && v) contact.push({k, v});
-          }else{
-            // 容错：没有冒号就当作一行备注
-            contact.push({k:'', v:t});
-          }
-          continue;
-        }
-
-        // 正文写入 box
-        if(!cur) cur = { title: '说明', textLines: [] };
-        cur.textLines.push(raw);
       }
 
-      pushBox();
-      return { title, boxes, contact };
+      return buf.join('\n').trim();
     }
 
-    function renderHome(data){
-      // 标题
-      document.getElementById('homeTitle').textContent = data.title || '欢迎访问我们的研究团队！';
-      document.title = (data.title || '团队主页');
-
-      // 两个 info-box
-      const grid = document.getElementById('homeGrid');
-      grid.innerHTML = '';
-      (data.boxes || []).slice(0,2).forEach(b=>{
-        const html = `
-          <div class="info-box">
-            <p>${escHtml(b.text).replace(/\n/g,'<br>')}</p>
-          </div>
-        `;
-        grid.insertAdjacentHTML('beforeend', html);
-      });
-
-      // 联系方式
-      const cb = document.getElementById('contactBox');
-      cb.innerHTML = '';
-      (data.contact || []).forEach(row=>{
-        if(row.k){
-          cb.insertAdjacentHTML('beforeend',
-            `<div><b>${escHtml(row.k)}：</b>${escHtml(row.v)}</div>`
-          );
-        }else{
-          cb.insertAdjacentHTML('beforeend',
-            `<div>${escHtml(row.v)}</div>`
-          );
-        }
-      });
-    }
-
-    fetch(mdUrl, { cache: 'no-store' })
+    fetch(mdUrl, { cache:'no-store' })
       .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-      .then(md => renderHome(parseHomeMd(md)))
-      .catch(err => {
-        console.error(err);
-        document.getElementById('fallbackBox').style.display = '';
-      });
+      .then(md => {
+        const intro = parseIntro(md);
+        if(!intro) return;
+
+        // 把可编辑段落替换进去，但保留后面的固定提示与链接
+        const p = document.getElementById('home_intro_text');
+        const fixedTail = `
+          <span class="muted">更多详细信息敬请浏览</span>
+          <a class="hot" href="research.html">“研究方向”</a>
+          <span class="muted">部分，欢迎与我们联系、进一步交流！</span>
+        `;
+
+        p.innerHTML = escHtml(intro).replace(/\n/g,'<br>') + fixedTail;
+      })
+      .catch(err => console.warn('主页简介读取失败：', err));
   </script>
 </body>
 </html>
