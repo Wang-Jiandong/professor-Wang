@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>研究方向 | 新的研究方向</title>
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- ✅ 本页小补丁：只控制图片大小&图题居中，不改全局CSS -->
+  <style>
+    .md-figure{
+      max-width: 560px;   /* 想更小就改 520 / 480 */
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid rgba(17,24,39,.10);
+      background:#fff;
+    }
+    .figcap{
+      text-align:center;
+      font-weight:800;
+      font-size:13.5px;
+      margin:8px 0 0;
+      color: rgba(17,24,39,.85);
+      line-height:1.6;
+    }
+  </style>
 </head>
 
 <body>
@@ -58,14 +80,16 @@
     // 解析规则：
     // # 标题
     // ## 段落标题
-    // 视频：视频：assets/xxx.mp4（放在本段落同框）
-    // 论文专著：论文专著：XXX方向的代表性论文。
+    // 视频：assets/xxx.mp4
+    // 图片：assets/xxx.png
+    // 图题：xxxxxx（配合视频/图片）
+    // 论文专著：XXX方向的代表性论文。
     function parseMd(md){
       const lines = md.replace(/\r\n/g, '\n').split('\n');
 
       let title = '新的研究方向';
-      const sections = []; // {h, pLines:[], videoSrc:''}
-      let paperTail = '';  // 技术细节里“—— 后半句”
+      const sections = []; // {h, pLines:[], videoSrc:'', imgSrc:'', caption:''}
+      let paperTail = '';
       let cur = null;
 
       function pushCur(){
@@ -86,21 +110,35 @@
         }
         if(line.startsWith('## ')){
           pushCur();
-          cur = { h: line.slice(3).trim(), pLines: [], videoSrc: '' };
+          cur = { h: line.slice(3).trim(), pLines: [], videoSrc: '', imgSrc:'', caption:'' };
           continue;
         }
+
         if(line.startsWith('视频：')){
           const src = line.replace(/^视频：/,'').trim();
           if(cur) cur.videoSrc = src;
           continue;
         }
+
+        if(line.startsWith('图片：')){
+          const src = line.replace(/^图片：/,'').trim();
+          if(cur) cur.imgSrc = src;
+          continue;
+        }
+
+        if(line.startsWith('图题：')){
+          const cap = line.replace(/^图题：/,'').trim();
+          if(cur) cur.caption = cap;
+          continue;
+        }
+
         if(line.startsWith('论文专著：')){
           paperTail = line.replace(/^论文专著：/,'').trim();
           continue;
         }
 
         if(!cur){
-          cur = { h: '说明', pLines: [], videoSrc: '' };
+          cur = { h: '说明', pLines: [], videoSrc: '', imgSrc:'', caption:'' };
         }
         cur.pLines.push(rawLine);
       }
@@ -113,25 +151,36 @@
       const h = escHtml(sec.h || '');
       const p = escHtml(sec.p || '').replace(/\n/g, '<br>');
 
-      const videoHtml = sec.videoSrc
-        ? `
+      // ✅ 同一个框里：优先视频，其次图片
+      let mediaHtml = '';
+      if(sec.videoSrc){
+        mediaHtml = `
           <div class="video-wrap video-small" style="margin-top:12px;">
-            <video controls preload="metadata" style="width:90%; display:block; margin:0 auto;">
+            <video controls preload="metadata" style="width:80%; display:block; margin:0 auto;">
               <source src="${escHtml(sec.videoSrc)}" type="video/mp4">
             </video>
+            ${sec.caption ? `<p class="figcap">${escHtml(sec.caption)}</p>` : ``}
           </div>
-        ` : '';
+        `;
+      }else if(sec.imgSrc){
+        mediaHtml = `
+          <div style="margin-top:12px;">
+            <img class="md-figure" src="${escHtml(sec.imgSrc)}" alt="${escHtml(sec.caption || '')}">
+            ${sec.caption ? `<p class="figcap">${escHtml(sec.caption)}</p>` : ``}
+          </div>
+        `;
+      }
 
       return `
         <div class="stack-item">
           <div class="stack-h">${h}</div>
           <p class="stack-p">${p}</p>
-          ${videoHtml}
+          ${mediaHtml}
         </div>
       `;
     }
 
-    // ✅ 固定前半句 + 可变后半句（从 md 读取）
+    // ✅ “技术细节 + 详见论文专著——xxx” 保持一个框里
     function techBlockHTML(paperTail){
       const tail = paperTail ? escHtml(paperTail) : '本研究方向的代表性论文。';
       return `
@@ -160,7 +209,6 @@
         root.insertAdjacentHTML('beforeend', buildSectionHTML(sec));
       });
 
-      // ✅ 最后追加技术细节（尾巴来自 md）
       root.insertAdjacentHTML('beforeend', techBlockHTML(data.paperTail));
     }
 
