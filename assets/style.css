@@ -62,7 +62,14 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
-  padding:14px 16px;
+
+  /* ✅ 让文字更大 */
+  font-size:19px;     /* 想更大就改 19/20 */
+  line-height:1.2;
+
+  /* ✅ 配合字号稍微增大按钮高度，更协调 */
+  padding:16px 18px;
+
   border-radius:14px;
   text-decoration:none;
 
@@ -75,6 +82,7 @@ body{
   font-weight:800;
   letter-spacing:.2px;
 }
+
 
 .nav a:hover{
   transform: translateY(-1px);
